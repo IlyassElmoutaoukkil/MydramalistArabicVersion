@@ -1,0 +1,32 @@
+#review_form .form-group-child {
+ background-color:#f5f7fa;
+ padding:16px;
+ border-radius:5px;
+ margin-top:10px
+}
+#review_form .edit-review {
+ padding:16px;
+ border:1px solid #e4e7ed;
+ background-color:#f5f7fa;
+ border-radius:4px;
+ min-height:101px
+}
+#review_form .edit-review .title {
+ font-weight:700;
+ color:#1675b6;
+ margin-bottom:5px;
+ font-size:15px
+}
+#review_form .edit-review .edit {
+ float:right;
+ color:#1675b6
+}
+#review_form .edit-review .date {
+ font-size:13px;
+ color:#999
+}
+#review_form .edit-review:hover {
+ background-color:#ecf5ff;
+ border:1px solid #3a8ee6;
+ cursor:pointer
+}

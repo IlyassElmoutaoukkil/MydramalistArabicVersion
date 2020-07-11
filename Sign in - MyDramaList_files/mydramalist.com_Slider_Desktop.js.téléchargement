@@ -1,0 +1,251 @@
+
+(function () {
+    /*tagconfig*/
+    
+    var a = {
+            publisherId: "5d8ccec528a0617cae5a0755",
+            channelId: "5de9192d28a06146c87014a5",
+            width: 400,
+            height: 300,
+            errorLimit: 12,
+            passbackUrl: "",
+            passbackpriority: false,
+            lastFrame: false,
+            HD: !0,
+            autoPlay: true,
+            Preroll: 0,
+            midrolltime: 5,
+            vastRetry: 4,
+            loop: true,
+            logo: true,
+            timelineMode: "overlay",
+            soundButton: true,
+            pauseButton: true,
+            maximp: 5,
+            maxrun: 10,
+            preloader: {
+                type: "",
+                link: "",
+                clickthrough: ""
+            },
+            customLogo: {
+                link: "https://embedproduction.s3.amazonaws.com/files/video/lil+logo+blue.png",
+                height: "",
+                width: "39.5",
+                text: "",
+                clickthrough: ""
+            },
+            playOnView: false,
+            pauseOnBlur: false,
+            openAnim: true,
+            hideInitPreloader: true,
+            unMuteOnMouseEnter: false,
+            floating: {
+                size: 0,
+                right: 0,
+                bottom: 0
+            },
+            sticky: {
+                size: 1,
+                position: "Bottom-Right",
+                right: 1,
+                bottom: 15,
+                top: 0,
+                left: 0
+            },
+            pauseOnUnseen: false,
+            closeButton: true,
+            skipTimer: 0,
+            skip: false,
+            skipText: "",
+            scriptId: "mydramalist_Slider_Desktop",
+            posId: "",
+            posTag: "",
+            posClass: "",
+            posSelector: "",
+            posDfp1x1: false,
+            maxWidth: "640",
+            templateType: "1",
+            position: "aniplayer_mydramalist_Slider_Desktop"
+    };
+    
+    /*tagconfig*/
+    
+    function run() {
+        (new Image).src = "https://track1.aniview.com/track?pid=" + a.publisherId + "&cid=" + a.channelId + "&e=playerLoaded&cb=" + Date.now();
+        var posRetry = 0;
+        if(!a.posTimeout)
+            a.posTimeout = 40;
+        var AV_topElement;
+        var pbjs = window.aniviewRenderer && window.aniviewRenderer.units && window.aniviewRenderer.units[a.scriptId];
+        if(pbjs)
+            pbjs.prepareConfig(a);
+    
+        function AV_getParams(b) {
+            var sc = document.getElementById(b);
+            if(sc && sc.src) {
+                var p = sc.src.indexOf("?");
+                if(p > 10) {
+                    return (sc.src.substring(p+1, sc.src.length));
+                }
+            }
+    
+            return a.ref1;
+        }
+        a.ref1 = AV_getParams(a.scriptId);
+    
+        function AV_getTopElement(p1, p2, p3, p4) {
+            try {
+                if(( p1 == "" && p2 == "" && p3 == "" && p4 == "" && !a.posDfp1x1) || (window === top))
+                    return document;
+                if(window.frameElement == null)
+                    return document;
+                if(a.posDfp1x1 && window.frameElement)
+                    return window.parent.document;
+                return window.top.document;
+    
+            } catch (f) {
+                return document;
+            }
+        }
+        function AV_loadJS(b, d, c) {
+            var scp = AV_topElement.createElement("script");
+            scp.src = b;
+            scp.onload = d;
+            scp.onreadystatechange = d;
+            scp.async = true;
+            c.appendChild(scp)
+        }
+        function getScriptAttr(c) {
+            if(c.scriptId) {
+                var s = document.getElementById(c.scriptId);
+                if(s) {
+                    for (var i = 0, t = s.attributes; i < s.attributes.length; i++){
+                        if(t[i].nodeName && t[i].nodeName.indexOf("data-") == 0) {
+                            var n = t[i].nodeName.replace("data-", "");
+                            c[n] = t[i].nodeValue;
+                        }
+                    }
+                }
+            }
+    
+        }
+        function AV_StartPlayer() {
+            var b;
+            getScriptAttr(a);
+            try{
+                if (parent.avPlayer) {
+                    b = new parent.avPlayer(a);
+                } else {
+                    b = new avPlayer(a);
+                }
+            } catch(exp) {
+                b = new avPlayer(a);
+            }
+            if(pbjs)
+                pbjs.preparePlayer(b);
+    
+            if(a.templateType != 0)
+                b.startTemplate(AV_topElement.getElementById(a.position).parentNode);
+            b.play(a);
+        }
+    
+        function AV_posRetry(callback, args) {
+            posRetry++;
+            if(posRetry > a.posTimeout)
+                return;
+    
+            setTimeout(function() {
+                callback.apply(null, args);
+            }, 250);
+        }
+        function AV_setPosition(doc, p1, p2, p3, p4) {
+            function createPlayer(p, n) {
+                var d1 = document.createElement("div");
+                d1.style.width = "100%";
+                d1.style.margin = "0 auto";
+                d1.style.maxWidth = "" + a.maxWidth + "px";
+    
+                var d2 = document.createElement("div");
+                d2.id = "aniBox";
+                d2.style.height = "1px";
+    
+                var d3 = document.createElement("div");
+                d3.id = ""+a.position;
+                if(!doc.body)
+                    doc.documentElement.appendChild(doc.createElement("body"));
+                if(p === doc || p===doc.head)
+                    p = doc.body;
+                if(n)
+                    p.insertBefore(d1, n);
+                else
+                    p.appendChild(d1);
+                d1.appendChild(d2);
+                d2.appendChild(d3);
+            }
+            var p = doc;
+            var isScp = false;
+            if(p4) {
+                p = doc.querySelector(p4);
+                if(!p) {
+                    AV_posRetry(AV_setPosition, arguments);
+                    return;
+                }
+            }
+            if(p2) {
+                p = doc.getElementById(p2);
+                if(!p) {
+                    AV_posRetry(AV_setPosition, arguments);
+                    return;
+                }
+            }
+            if(p1) {
+                var c = p1.split("#");
+                if(c && c.length == 2) {
+                    var e = p.getElementsByTagName(c[0]);
+                    if(e.length == 0) {
+                        AV_posRetry(AV_setPosition, arguments);
+                        return;
+                    }
+                    p = e[Math.min(c[1] - 1, e.length-1)];
+                }
+            }
+            if(p3) {
+                var c = p3.split("#");
+                var e = 1;
+                if(c.length == 2)
+                    e = c[1];
+                var f = p.getElementsByClassName(c[0]);
+                if(f.length > 0)
+                    p = f[Math.min(e-1, f.length-1)];
+            }
+            if(a.posDfp1x1 && window.frameElement) {
+                n = window.frameElement.parentNode.parentNode;
+                p = n.parentNode;
+            }
+            var n;
+            if(p === doc) {
+                n = doc.getElementById(a.scriptId);
+                if(n)
+                    p = n.parentNode;
+            }
+            if(p === doc.head) {
+                n = null;
+                p = doc;
+            }
+            createPlayer(p, n);
+            AV_loadJS("https://player.aniview.com/script/6.1/aniview.js", AV_StartPlayer, AV_topElement.body);
+        };
+        AV_topElement = AV_getTopElement(a.posTag, a.posId, a.posClass, a.posSelector);
+        AV_setPosition(AV_topElement, a.posTag, a.posId, a.posClass, a.posSelector);
+    }
+    if(!window.aniplayerPos)
+        window.aniplayerPos = {};
+    if(window.aniplayerPos[a.position])
+        return;
+    window.aniplayerPos[a.position] = true;
+    run();
+    
+    })();
+    
+    

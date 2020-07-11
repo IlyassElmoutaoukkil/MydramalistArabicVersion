@@ -1,0 +1,137 @@
+.style-default h2,
+#dramalist h2 {
+ font-size:16px
+}
+.style-default .dramalist-header,
+#dramalist .dramalist-header {
+ position:relative
+}
+.style-default .section.mylist,
+#dramalist .section.mylist {
+ padding:0
+}
+.style-default .table,
+#dramalist .table {
+ margin-bottom:0
+}
+.style-default .table thead th,
+#dramalist .table thead th {
+ border-top:0;
+ background-color:#3783bb;
+ color:#fff
+}
+.style-default .table thead th>a,
+#dramalist .table thead th>a {
+ color:#fff;
+ font-weight:400;
+ font-size:13px;
+ text-decoration:none;
+ text-shadow:0 -1px 0 #363636
+}
+.style-default .table tbody th,
+#dramalist .table tbody th {
+ font-weight:400;
+ padding-top:5px;
+ padding-bottom:5px
+}
+.style-default .table tbody tr:nth-child(odd),
+#dramalist .table tbody tr:nth-child(odd) {
+ background-color:#f3f8fc
+}
+.style-default .table tbody tr td,
+#dramalist .table tbody tr td {
+ padding:5px 8px
+}
+.style-default .table tbody tr td .airing,
+#dramalist .table tbody tr td .airing {
+ display:inline-block;
+ padding:.25em .4em;
+ font-size:75%;
+ line-height:1;
+ color:#fff;
+ white-space:nowrap;
+ background-color:#6cc788;
+ color:#fff;
+ vertical-align:baseline;
+ border-radius:.25rem
+}
+.style-default .table tbody tr td .planned,
+#dramalist .table tbody tr td .planned {
+ display:inline-block;
+ padding:.25em .4em;
+ font-size:75%;
+ line-height:1;
+ color:#fff;
+ white-space:nowrap;
+ background-color:#2196f3;
+ color:#fff;
+ vertical-align:baseline;
+ border-radius:.25rem
+}
+.style-default .table tbody tr .score_0,
+#dramalist .table tbody tr .score_0 {
+ color:#ddd
+}
+.style-default .table tbody .btnManageList,
+#dramalist .table tbody .btnManageList {
+ float:right;
+ font-size:11px;
+ cursor:pointer;
+ background-color:transparent;
+ border:0
+}
+.style-default .table tbody .btnQuickEpisodeUpdate,
+#dramalist .table tbody .btnQuickEpisodeUpdate {
+ float:right;
+ color:#aaa
+}
+.style-default .showNotes,
+#dramalist .showNotes {
+ float:right;
+ margin-right:10px
+}
+.style-default .score,
+#dramalist .score {
+ font-size:13px;
+ padding-left:3px
+}
+.style-default .list-statistics label,
+#dramalist .list-statistics label {
+ border:1px solid #ddd;
+ color:#666;
+ font-size:11px;
+ text-transform:uppercase;
+ padding:4px 10px;
+ -moz-border-radius:3px;
+ -webkit-border-radius:3px;
+ border-radius:3px;
+ -moz-box-shadow:0 1px 1px #e4e4e4;
+ -webkit-box-shadow:0 1px 1px #e4e4e4;
+ box-shadow:0 1px 1px #e4e4e4
+}
+.style-default .list-statistics label>.cnt,
+#dramalist .list-statistics label>.cnt {
+ font-weight:700;
+ background-color:#eee;
+ color:#444;
+ display:inline-block;
+ padding:1px 5px;
+ -moz-border-radius:5px;
+ -webkit-border-radius:5px;
+ border-radius:5px;
+ margin-left:5px
+}
+.style-default .film-info,
+#dramalist .film-info {
+ font-family:'font awesome 5 pro';
+ float:right;
+ color:#8fadc1;
+ cursor:pointer;
+ padding-left:4px;
+ font-size:17px;
+ font-weight:300
+}
+.style-default .film-info:before,
+#dramalist .film-info:before {
+ content:"\f059"
+}

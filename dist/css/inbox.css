@@ -1,0 +1,12 @@
+.btn-compose {
+ display:block;
+ width:100%;
+ font-weight:700
+}
+.pm-item .el-checkbox__label {
+ display:none
+}
+.el-autocomplete-suggestion__list .user-result {
+ line-height:20px;
+ padding:6px 0
+}

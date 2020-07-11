@@ -1,0 +1,1664 @@
+<?php session_start();
+if (isset($_SESSION['id'])){
+include("process/conn.php");
+
+
+?>
+<!DOCTYPE html>
+<html dir="rtl" lang="ar-AR">
+
+<head>
+    <title>إعدادات</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#015284" />
+    <meta name="dailymotion-domain-verification" content="dmg5lpc1ng53ymvet" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css?v=4.34.1d2">
+
+
+    <link href="css/fontawesome/css/all.min.css?v=4.34.1a" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="css/app.css?v=4.34.1d2">
+    <link rel="stylesheet" href="css/style.css?v=4.34.1d2">
+    <link rel="stylesheet" href="css/mdl.css?v=4.34.1d24">
+    <link rel="stylesheet" href="css/selectize/selectize.default.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="assets/css/toastr.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,350,300i,400,400i,700" rel="stylesheet">
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/tether.min.js"></script>
+    <script type="text/javascript" src="dist/en/js/select.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+
+
+
+    <link href="dist/css/select-theme-default.css" rel="stylesheet" type="text/css">
+
+    <link href="js/editormd.min.css" rel="stylesheet" type="text/css">
+
+
+
+    <link href="dist/css/select-theme-chosen.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.qtip.min.js?v=4.34.1"></script>
+    <script type="text/javascript" src="js/moment.min.js"></script>
+    <script type="text/javascript" src="dist/en/js/moment-with-locales.min.js"></script>
+    <link rel="stylesheet" href="css/Lobibox.min.css">
+    <link rel="stylesheet" href="dist/css/vendor.css?v=4.34.1">
+    <link rel="stylesheet" href="dist/css/main.css?v=4.34.1">
+    <script type="text/javascript" src="dist/en/js/manifest.js?v=4.34.1"></script>
+    <script type="text/javascript" src="js/Lobibox.js"></script>
+    <script type="text/javascript" src="dist/en/js/vendor.js?v=4.34.1"></script>
+    <script type="text/javascript" src="js/home.js"></script>
+    <script type="text/javascript" src="dist/en/js/ui.js?v=4.34.1"></script>
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script type="text/javascript" src="js/adsbygoogle.js?v=4.34.1g3"></script>
+    <link href="dist/css/inbox.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/account.js"></script>
+    <script type="text/javascript" src="js/editormd.min.js"></script>
+
+
+
+
+    <script type="text/javascript" src="js/diberp.js?v=4.34.1g42"></script>
+    <script src='https://www.google.com/recaptcha/api.js?render=6LdvmnwUAAAAAJqyD_ag2I14Z-uU3GPyA6eBb_4Y&hl=en-US'></script>
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon-iphone.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/apple-touch-icon-ipad.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/apple-touch-icon-iphone-retina-display.png" />
+
+    <style type="text/css">
+        .spnsr-wrapper-1950 {
+            text-align: center;
+            min-height: 30px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+        .spnsr-wrapper-1950 .spnsr-top-1950 {
+            backgroundx-image: url(assets/img/spnsr-text-wide2.png);
+            background-repeat: no-repeat;
+            background-color: #f3f8fc;
+            background-size: 90%;
+            background-position: center;
+            border: none;
+            text-align: center;
+            margin: 0 auto;
+            min-height: 90px;
+            max-height: 250px;
+            min-width: 728px;
+            padding: 0;
+            position: relative;
+            visibility: visible;
+            display: inline-block;
+        }
+
+        .spnsr-wrapper-1950 .spnsr-top-1950.is-mobile {
+            min-width: 320px;
+            text-align: center;
+        }
+
+        .spnsr-wrapper-1950 .spnsr-top-1950.is-desktop {
+            min-height: 90px !important;
+            overflow: hidden;
+        }
+
+        .spnsr-wrapper-1950 .spnsr-top-1950.ads-off {
+            display: none;
+        }
+
+        .app-footer .spnsr-top-1950 {
+            padding-top: 25px;
+            text-align: center;
+        }
+
+        .spnsr_right_1950 {
+            width: 300px;
+            margin: 15px auto;
+        }
+
+        .spnsr_right_1950 .spnsr,
+        .spnsr_right_1950 .spnsr_1950 {
+            width: 300px;
+            min-height: 250px;
+            background-image: url(assets/img/spnsr-text-box2.png);
+            background-size: 90%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #f3f8fc;
+        }
+
+        .footer-rec-site {
+            padding-top: 26px;
+            margin-top: 4px;
+            position: relative;
+        }
+
+        .footer-rec-site:after {
+            color: #909399;
+            content: 'Recommended Site';
+            display: block;
+            font-size: 12px;
+            left: 0;
+            position: absolute;
+            text-align: left;
+            top: 0;
+            width: 150px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <?php include("menu.php"); ?>
+
+    <div id="content" class="slideout-panel slideout-panel-right">
+        <div class="app-body">
+            <div class="spnsr-wrapper-2010">
+                <div class="spnsr-top-2010 is-desktop">
+                    <div class="mdl-gpt-tag" id="mdl-gpt-header-0" data-google-query-id="CJf89YPH_OcCFQllFQgdC4EORA">
+
+                        <div id="google_ads_iframe_/47261215/header_top_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/47261215/header_top_0" title="3rd party ad content" name="google_ads_iframe_/47261215/header_top_0" scrolling="no" marginwidth="0" marginheight="0" style="border: 0px none; vertical-align: bottom;" srcdoc="" data-google-container-id="1" data-load-complete="true" width="728" height="90" frameborder="0"></iframe></div>
+                    </div>
+                </div>
+            </div>
+            <div id="add-app" class="container-fluid">
+                <div class="box">
+                    <div class="box-header box-navbar">
+                        <h1>Add a New Title</h1> <small class="text-muted">v2.1.4</small>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3">
+                            <div class="box-body">
+                                <div class="el-select" style="display: block; margin-bottom: 16px;">
+                                    <!---->
+                                    <div class="el-input el-input--suffix">
+                                        <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="" class="el-input__inner">
+                                        <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                <!---->
+                                                <!---->
+                                                <!---->
+                                                <!---->
+                                                <!----></span>
+                                            <!----></span>
+                                        <!---->
+                                        <!---->
+                                    </div>
+                                </div>
+                                <ul class="sticky mdl-nav">
+                                    <li active-class="active"><a><span class="nav-icon"><i class="fa fa-caret-right"></i></span> <span class="nav-text">Primary Details</span></a></li>
+                                    <li active-class="active"><a><span class="nav-icon"><i class="fa fa-caret-right"></i></span> <span class="nav-text">Cover Image</span></a></li>
+                                    <li active-class="active"><a><span class="nav-icon"><i class="fa fa-caret-right"></i></span> <span class="nav-text">Related Titles</span></a></li>
+                                    <li active-class="active"><a><span class="nav-icon"><i class="fa fa-caret-right"></i></span> <span class="nav-text">Cast</span></a></li>
+                                    <li active-class="active"><a><span class="nav-icon"><i class="fa fa-caret-right"></i></span> <span class="nav-text">Crew</span></a></li>
+                                    <li active-class="active"><a><span class="nav-icon"><i class="fa fa-caret-right"></i></span> <span class="nav-text">Release Information</span></a></li>
+                                    <li active-class="active"><a><span class="nav-icon"><i class="fa fa-caret-right"></i></span> <span class="nav-text">Production Information</span></a></li>
+                                    <li active-class="active"><a><span class="nav-icon"><i class="fa fa-caret-right"></i></span> <span class="nav-text">Genres &amp; Tags</span></a></li>
+                                    <li><a><span class="nav-icon"><i class="fa fa-caret-right"></i></span> <span class="nav-text">Submit</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-9">
+                            <div class="box-body">
+                                <div class="content" style="min-height: 300px;">
+                                    <div>
+                                        <div class="box cmpt-box">
+                                            <div id="details" class="edit-container">
+                                                <form class="el-form edit-container">
+                                                    <div class="pull-right text-muted">9 changes</div>
+                                                    <h5 class="m-b-md">Primary Details</h5>
+                                                    <div class="official-title-form">
+                                                        <div class="has-edited">
+                                                            <div class="el-form-item">
+                                                                <!---->
+                                                                <div class="el-form-item__content"><label><b>Mostly Known as*</b></label>
+                                                                    <div class="el-input el-input--suffix _600 new-title-confirmed">
+                                                                        <!----><input type="text" autocomplete="off" placeholder="Mostly Known as" class="el-input__inner">
+                                                                        <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-input__icon el-icon-circle-check"></i>
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!----></span>
+                                                                            <!----></span>
+                                                                        <!---->
+                                                                        <!---->
+                                                                    </div> <small class="text-muted">Will appear as the main title</small>
+                                                                    <!---->
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: none;">
+                                                                <h5 class="m-b-md m-t-md text-danger">Possible Duplicates</h5>
+                                                                <p>Here's a list of titles that may be duplicate for the one you're trying to create. You can edit the existing title by clicking on <label class="label dark"><i class="fa fa-pencil"></i> Edit</label> instead</p>
+                                                                <p>To create a new title select the checkbox below and continue by clicking confirm.</p>
+                                                                <div class="form-group">
+                                                                    <table class="table duplicates-table m-t">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Title</th>
+                                                                                <th></th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody></tbody>
+                                                                    </table>
+                                                                    <div class="el-loading-mask" style="display: none;">
+                                                                        <div class="el-loading-spinner"><svg viewBox="25 25 50 50" class="circular">
+                                                                                <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
+                                                                            </svg>
+                                                                            <!---->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="m-b-lg">
+                                                                    <div class="form-group">
+                                                                        <div class="el-form-item">
+                                                                            <!---->
+                                                                            <div class="el-form-item__content"><label class="el-checkbox is-checked"><span class="el-checkbox__input is-checked"><span class="el-checkbox__inner"></span><input type="checkbox" aria-hidden="false" class="el-checkbox__original" value=""></span><span class="el-checkbox__label"><b>This is not an existing title.</b>
+                                                                                        <!----></span></label>
+                                                                                <!---->
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="el-form-item">
+                                                                            <!---->
+                                                                            <div class="el-form-item__content"><button type="button" class="el-button el-button--danger">
+                                                                                    <!----><i class="el-icon-check"></i><span>Confirm</span></button>
+                                                                                <!---->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                    <div class="row">
+                                                        <div class="el-form-item col-lg-8 has-edited">
+                                                            <!---->
+                                                            <div class="el-form-item__content"><label><b>Native Title*</b></label>
+                                                                <div class="el-input">
+                                                                    <!----><input type="text" autocomplete="off" placeholder="Eg: 각시탈" class="el-input__inner">
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <!---->
+                                                                </div> <small class="text-muted">Original language title (Native Language) only</small>
+                                                                <!---->
+                                                            </div>
+                                                        </div>
+                                                        <div class="el-form-item col-lg-4 has-edited">
+                                                            <!---->
+                                                            <div class="el-form-item__content"><label><b>Country*</b></label>
+                                                                <div class="el-select" style="display: block;">
+                                                                    <!---->
+                                                                    <div class="el-input el-input--suffix">
+                                                                        <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="Select" class="el-input__inner" style="height: 40px;">
+                                                                        <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!----></span>
+                                                                            <!----></span>
+                                                                        <!---->
+                                                                        <!---->
+                                                                    </div>
+                                                                </div>
+                                                                <!---->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group has-edited">
+                                                        <div><label><b>Also Known As</b></label>
+                                                            <div class="mdl-input-tag-wrapper"><span class="input-tag"><span>lllk</span> <i class="el-tag__close el-icon-close"></i></span><span class="input-tag"><span>klk</span> <i class="el-tag__close el-icon-close"></i></span><span class="input-tag"><span>nm ,m</span> <i class="el-tag__close el-icon-close"></i></span> <input placeholder="Eg: Gaksital; Bridal Mask; Doll Mask" type="text" class="new-tag"></div>
+                                                        </div> <small class="text-muted">Other names by which the dramas is known.</small>
+                                                    </div>
+                                                    <div class="form-group has-edited"><label><b>Synopsis</b></label>
+                                                        <div class="el-textarea"><textarea autocomplete="off" placeholder="Plot Summaries" class="el-textarea__inner" style="min-height: 117px; height: 117px;"></textarea>
+                                                            <!---->
+                                                        </div> <small class="text-muted">If you're copying and pasting a synopsis from another site, please reference it at the bottom! Example:(Source: DramaWiki)</small>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="el-form-item col-lg-6 has-edited">
+                                                            <!---->
+                                                            <div class="el-form-item__content"><label><b>Content Type*</b></label>
+                                                                <div class="el-select" style="display: block;">
+                                                                    <!---->
+                                                                    <div class="el-input el-input--suffix">
+                                                                        <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="" class="el-input__inner" style="height: 40px;">
+                                                                        <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!----></span>
+                                                                            <!----></span>
+                                                                        <!---->
+                                                                        <!---->
+                                                                    </div>
+                                                                </div>
+                                                                <!---->
+                                                            </div>
+                                                        </div>
+                                                        <div class="el-form-item col-lg-6 has-edited">
+                                                            <!---->
+                                                            <div class="el-form-item__content"><label><b>Content Rating</b></label>
+                                                                <div class="el-select" style="display: block;">
+                                                                    <!---->
+                                                                    <div class="el-input el-input--suffix">
+                                                                        <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="" class="el-input__inner" style="height: 40px;">
+                                                                        <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!----></span>
+                                                                            <!----></span>
+                                                                        <!---->
+                                                                        <!---->
+                                                                    </div>
+                                                                </div>
+                                                                <!---->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="el-form-item col-lg-6 has-edited">
+                                                            <!---->
+                                                            <div class="el-form-item__content"><label><b>Drama Special Status*</b></label>
+                                                                <div class="el-select" style="display: block;">
+                                                                    <!---->
+                                                                    <div class="el-input el-input--suffix">
+                                                                        <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="" class="el-input__inner" style="height: 40px;">
+                                                                        <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!----></span>
+                                                                            <!----></span>
+                                                                        <!---->
+                                                                        <!---->
+                                                                    </div>
+                                                                </div>
+                                                                <!---->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 has-edited" style="margin-bottom: 22px;">
+                                                            <div class="el-form-item" style="margin-bottom: 0px;">
+                                                                <!---->
+                                                                <div class="el-form-item__content"><label><b>Duration (# of minutes)</b></label>
+                                                                    <div class="el-input-number is-controls-right" style="display: block; width: 100%;"><span role="button" class="el-input-number__decrease"><i class="el-icon-arrow-down"></i></span><span role="button" class="el-input-number__increase"><i class="el-icon-arrow-up"></i></span>
+                                                                        <div class="el-input">
+                                                                            <!----><input type="text" autocomplete="off" placeholder="e.g. 30" max="Infinity" min="0" class="el-input__inner" role="spinbutton" aria-valuemax="Infinity" aria-valuemin="0" aria-valuenow="12" aria-disabled="true">
+                                                                            <!---->
+                                                                            <!---->
+                                                                            <!---->
+                                                                            <!---->
+                                                                        </div>
+                                                                    </div>
+                                                                    <!---->
+                                                                </div>
+                                                            </div> <small class="text-muted" style="line-height: 1.5;">The total number of minutes in an average episode. If you are not sure, leave it blank.</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <!---->
+                                                        </div>
+                                                        <div class="el-form-item col-lg-6">
+                                                            <!---->
+                                                            <div class="el-form-item__content"><label><b>Episodes</b></label>
+                                                                <div class="row">
+                                                                    <div class="col-lg-5">
+                                                                        <div class="el-input-number is-controls-right" style="display: block; width: 100%;"><span role="button" class="el-input-number__decrease is-disabled"><i class="el-icon-arrow-down"></i></span><span role="button" class="el-input-number__increase"><i class="el-icon-arrow-up"></i></span>
+                                                                            <div class="el-input">
+                                                                                <!----><input type="text" autocomplete="off" placeholder="e.g. 12" max="Infinity" min="0" class="el-input__inner" role="spinbutton" aria-valuemax="Infinity" aria-valuemin="0" aria-valuenow="0" aria-disabled="false">
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!---->
+                                                                                <!---->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-7"><label class="el-checkbox is-disabled is-bordered"><span class="el-checkbox__input is-disabled"><span class="el-checkbox__inner"></span><input type="checkbox" aria-hidden="false" disabled="disabled" class="el-checkbox__original" value="TBA (To be announced)"></span><span class="el-checkbox__label">TBA (To be announced)</span></label></div>
+                                                                </div> <small class="text-muted">Do not include any special in the total. If unknown leave blank.</small>
+                                                                <!---->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="box cmpt-box">
+                                            <div id="cover" class="edit-container">
+                                                <div class="pull-right text-muted">0 changes</div>
+                                                <h5 class="m-b-md">Cover Image</h5>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="clear form-group">
+                                                            <div class="edit-cover"><span class="no-cover"></span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <p class="alert alert-warning m-b">Keep the pictures pg-13. Remember only one picture will show up on the profile, so do not submit a picture if there is already a better one up.
+                                                            <br><br>Minimum acceptable dimensions are 300 x 300 pixels.</p>
+                                                        <div class="upload-demo">
+                                                            <div tabindex="0" class="el-upload el-upload--text"><button type="button" class="el-button el-button--primary">
+                                                                    <!---->
+                                                                    <!----><span>Choose File</span></button><input type="file" name="file" class="el-upload__input"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </div>
+                                        </div>
+                                        <div class="box cmpt-box">
+                                            <div id="cast" class="edit-container"><a name="cast" id="goto_cast"></a>
+                                                <div class="pull-right text-muted">0 changes</div>
+                                                <h5 class="m-b-md">Cast</h5>
+                                                <div class="form-group">
+                                                    <table class="table sort-table edit-table m-t">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="2">Person</th>
+                                                                <th width="145">Role</th>
+                                                                <th width="200">Character</th>
+                                                                <th width="112"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody></tbody>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td colspan="4">No records have been added.</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="form-group p-a clearfix">
+                                                    <div class="pull-right" style="width: 50%;">
+                                                        <div aria-haspopup="listbox" role="combobox" aria-owns="el-autocomplete-3461" class="el-autocomplete" style="display: block;">
+                                                            <div class="el-input el-input--suffix">
+                                                                <!----><input type="text" autocomplete="off" valuekey="value" placeholder="Search to add a cast member" minlength="3" fetchsuggestions="function n(n){var r=arguments.length;return r?r>1?e.apply(t,arguments):e.call(t,n):e.call(t)}" debounce="600" placement="bottom-start" class="el-input__inner" role="textbox" aria-autocomplete="list" aria-controls="id" aria-activedescendant="el-autocomplete-3461-item--1">
+                                                                <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-icon-search el-input__icon"></i>
+                                                                        <!---->
+                                                                        <!---->
+                                                                        <!---->
+                                                                        <!----></span>
+                                                                    <!----></span>
+                                                                <!---->
+                                                                <!---->
+                                                            </div>
+                                                            <div role="region" class="el-autocomplete-suggestion el-popper" style="display: none;">
+                                                                <div class="el-scrollbar">
+                                                                    <div class="el-autocomplete-suggestion__wrap el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+                                                                        <ul class="el-scrollbar__view el-autocomplete-suggestion__list" role="listbox" id="el-autocomplete-3461">
+                                                                            <p class="el-select-dropdown__empty" style="margin: 15px 15px 15px 0px;">No match found</p>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="el-scrollbar__bar is-horizontal">
+                                                                        <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                                                    </div>
+                                                                    <div class="el-scrollbar__bar is-vertical">
+                                                                        <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </div>
+                                        </div>
+                                        <div class="box cmpt-box">
+                                            <div id="crew" class="edit-container"><a name="crew" id="goto_crew"></a>
+                                                <div class="pull-right text-muted">0 changes</div>
+                                                <h5 class="m-b-md">Crew</h5>
+                                                <div class="form-group">
+                                                    <table class="table sort-table edit-table m-t">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="2">Person</th>
+                                                                <th width="235">Job</th>
+                                                                <th width="112"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody></tbody>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td colspan="4">No records have been added.</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="form-group p-a clearfix">
+                                                    <div class="pull-right" style="width: 50%;">
+                                                        <div aria-haspopup="listbox" role="combobox" aria-owns="el-autocomplete-1426" class="el-autocomplete" style="display: block;">
+                                                            <div class="el-input el-input--suffix">
+                                                                <!----><input type="text" autocomplete="off" valuekey="value" placeholder="Search to add a crew member" minlength="3" fetchsuggestions="function n(n){var r=arguments.length;return r?r>1?e.apply(t,arguments):e.call(t,n):e.call(t)}" triggeronfocus="true" debounce="600" placement="bottom-start" class="el-input__inner" role="textbox" aria-autocomplete="list" aria-controls="id" aria-activedescendant="el-autocomplete-1426-item--1">
+                                                                <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-icon-search el-input__icon"></i>
+                                                                        <!---->
+                                                                        <!---->
+                                                                        <!---->
+                                                                        <!----></span>
+                                                                    <!----></span>
+                                                                <!---->
+                                                                <!---->
+                                                            </div>
+                                                            <div role="region" class="el-autocomplete-suggestion el-popper" style="display: none;">
+                                                                <div class="el-scrollbar">
+                                                                    <div class="el-autocomplete-suggestion__wrap el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+                                                                        <ul class="el-scrollbar__view el-autocomplete-suggestion__list" role="listbox" id="el-autocomplete-1426">
+                                                                            <p class="el-select-dropdown__empty" style="margin: 15px 15px 15px 0px;">No match found</p>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="el-scrollbar__bar is-horizontal">
+                                                                        <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                                                    </div>
+                                                                    <div class="el-scrollbar__bar is-vertical">
+                                                                        <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </div>
+                                        </div>
+                                        <div class="box cmpt-box">
+                                            <div id="related" class="edit-container"><a name="related" id="goto_related"></a>
+                                                <div class="pull-right text-muted">0 changes</div>
+                                                <h5 class="m-b-md">Related Titles</h5>
+                                                <div class="form-group">
+                                                    <table class="table sort-table edit-table m-t">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="2">Title</th>
+                                                                <th width="235">Story Format</th>
+                                                                <th width="112"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody></tbody>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td colspan="4">No records have been added.</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="form-group p-a clearfix">
+                                                    <div class="pull-right" style="width: 50%;">
+                                                        <div aria-haspopup="listbox" role="combobox" aria-owns="el-autocomplete-2884" class="el-autocomplete" style="display: block;">
+                                                            <div class="el-input el-input--suffix">
+                                                                <!----><input type="text" autocomplete="off" valuekey="value" placeholder="Search to add a related title" minlength="3" fetchsuggestions="function n(n){var r=arguments.length;return r?r>1?e.apply(t,arguments):e.call(t,n):e.call(t)}" debounce="600" placement="bottom-start" class="el-input__inner" role="textbox" aria-autocomplete="list" aria-controls="id" aria-activedescendant="el-autocomplete-2884-item--1">
+                                                                <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-icon-search el-input__icon"></i>
+                                                                        <!---->
+                                                                        <!---->
+                                                                        <!---->
+                                                                        <!----></span>
+                                                                    <!----></span>
+                                                                <!---->
+                                                                <!---->
+                                                            </div>
+                                                            <div role="region" class="el-autocomplete-suggestion el-popper" style="display: none;">
+                                                                <div class="el-scrollbar">
+                                                                    <div class="el-autocomplete-suggestion__wrap el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+                                                                        <ul class="el-scrollbar__view el-autocomplete-suggestion__list" role="listbox" id="el-autocomplete-2884">
+                                                                            <p class="el-select-dropdown__empty" style="margin: 15px 15px 15px 0px;">No match found</p>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="el-scrollbar__bar is-horizontal">
+                                                                        <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                                                    </div>
+                                                                    <div class="el-scrollbar__bar is-vertical">
+                                                                        <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </div>
+                                        </div>
+                                        <div class="box cmpt-box">
+                                            <div id="release" class="edit-container"><a name="release" id="goto_release"></a>
+                                                <div class="pull-right text-muted">0 changes</div>
+                                                <h5 class="m-b-md">Release Information</h5>
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group"><label><b>Release Date</b></label>
+                                                                <div class="row release-date">
+                                                                    <div class="col-lg-5">
+                                                                        <div class="el-select">
+                                                                            <!---->
+                                                                            <div class="el-input el-input--suffix">
+                                                                                <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="" class="el-input__inner">
+                                                                                <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!----></span>
+                                                                                    <!----></span>
+                                                                                <!---->
+                                                                                <!---->
+                                                                            </div>
+                                                                            <div class="el-select-dropdown el-popper" style="display: none; min-width: 129.75px;">
+                                                                                <div class="el-scrollbar" style="">
+                                                                                    <div class="el-select-dropdown__wrap el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+                                                                                        <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                                            <!---->
+                                                                                            <li class="el-select-dropdown__item selected hover"><span>-</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>01 - January</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>02 - February</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>03 - March</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>04 - April</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>05 - May</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>06 - June</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>07 - July</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>08 - August</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>09 - September</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>10 - October</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>11 - November</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>12 - December</span></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="el-scrollbar__bar is-horizontal">
+                                                                                        <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                                                                    </div>
+                                                                                    <div class="el-scrollbar__bar is-vertical">
+                                                                                        <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!---->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-3">
+                                                                        <div class="el-select">
+                                                                            <!---->
+                                                                            <div class="el-input el-input--suffix">
+                                                                                <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="" class="el-input__inner">
+                                                                                <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!----></span>
+                                                                                    <!----></span>
+                                                                                <!---->
+                                                                                <!---->
+                                                                            </div>
+                                                                            <div class="el-select-dropdown el-popper" style="display: none; min-width: 68.25px;">
+                                                                                <div class="el-scrollbar" style="">
+                                                                                    <div class="el-select-dropdown__wrap el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+                                                                                        <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                                            <!---->
+                                                                                            <li class="el-select-dropdown__item selected hover"><span>-</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>3</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>4</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>5</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>6</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>7</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>8</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>9</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>10</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>11</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>12</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>13</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>14</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>15</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>16</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>17</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>18</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>19</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>20</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>21</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>22</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>23</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>24</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>25</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>26</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>27</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>28</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>29</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>30</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>31</span></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="el-scrollbar__bar is-horizontal">
+                                                                                        <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                                                                    </div>
+                                                                                    <div class="el-scrollbar__bar is-vertical">
+                                                                                        <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!---->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <div class="el-select">
+                                                                            <!---->
+                                                                            <div class="el-input el-input--suffix">
+                                                                                <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="" class="el-input__inner">
+                                                                                <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!----></span>
+                                                                                    <!----></span>
+                                                                                <!---->
+                                                                                <!---->
+                                                                            </div>
+                                                                            <div class="el-select-dropdown el-popper" style="display: none; min-width: 98.9833px;">
+                                                                                <div class="el-scrollbar" style="">
+                                                                                    <div class="el-select-dropdown__wrap el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+                                                                                        <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                                            <!---->
+                                                                                            <li class="el-select-dropdown__item selected hover"><span>----</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2023</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2022</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2021</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2020</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2019</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2018</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2017</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2016</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2015</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2014</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2013</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2012</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2011</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2010</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2009</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2008</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2007</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2006</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2005</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2004</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2003</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2002</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2001</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2000</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1999</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1998</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1997</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1996</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1995</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1994</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1993</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1992</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1991</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1990</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1989</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1988</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1987</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1986</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1985</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1984</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1983</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1982</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1981</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1980</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1979</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1978</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1977</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1976</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1975</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1974</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1973</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1972</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1971</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1970</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1969</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1968</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1967</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1966</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1965</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1964</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1963</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1962</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1961</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1960</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1959</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1958</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1957</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1956</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1955</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1954</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1953</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1952</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1951</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1950</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1949</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1948</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1947</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1946</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1945</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1944</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1943</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1942</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1941</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1940</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1939</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1938</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1937</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1936</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1935</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1934</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1933</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1932</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1931</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1930</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1929</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1928</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1927</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1926</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1925</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1924</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1923</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1922</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1921</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1920</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1919</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1918</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1917</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1916</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1915</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1914</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1913</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1912</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1911</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1910</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1909</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1908</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1907</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1906</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1905</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1904</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1903</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1902</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1901</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1900</span></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="el-scrollbar__bar is-horizontal">
+                                                                                        <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                                                                    </div>
+                                                                                    <div class="el-scrollbar__bar is-vertical">
+                                                                                        <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!---->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group"><label><b>End Date</b></label>
+                                                                <div class="row release-date">
+                                                                    <div class="col-lg-5">
+                                                                        <div class="el-select">
+                                                                            <!---->
+                                                                            <div class="el-input el-input--suffix">
+                                                                                <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="" class="el-input__inner">
+                                                                                <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!----></span>
+                                                                                    <!----></span>
+                                                                                <!---->
+                                                                                <!---->
+                                                                            </div>
+                                                                            <div class="el-select-dropdown el-popper" style="display: none; min-width: 129.75px;">
+                                                                                <div class="el-scrollbar" style="">
+                                                                                    <div class="el-select-dropdown__wrap el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+                                                                                        <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                                            <!---->
+                                                                                            <li class="el-select-dropdown__item selected hover"><span>-</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>01 - January</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>02 - February</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>03 - March</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>04 - April</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>05 - May</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>06 - June</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>07 - July</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>08 - August</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>09 - September</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>10 - October</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>11 - November</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>12 - December</span></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="el-scrollbar__bar is-horizontal">
+                                                                                        <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                                                                    </div>
+                                                                                    <div class="el-scrollbar__bar is-vertical">
+                                                                                        <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!---->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-3">
+                                                                        <div class="el-select">
+                                                                            <!---->
+                                                                            <div class="el-input el-input--suffix">
+                                                                                <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="" class="el-input__inner">
+                                                                                <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!----></span>
+                                                                                    <!----></span>
+                                                                                <!---->
+                                                                                <!---->
+                                                                            </div>
+                                                                            <div class="el-select-dropdown el-popper" style="display: none; min-width: 68.25px;">
+                                                                                <div class="el-scrollbar" style="">
+                                                                                    <div class="el-select-dropdown__wrap el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+                                                                                        <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                                            <!---->
+                                                                                            <li class="el-select-dropdown__item selected hover"><span>-</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>3</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>4</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>5</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>6</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>7</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>8</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>9</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>10</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>11</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>12</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>13</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>14</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>15</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>16</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>17</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>18</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>19</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>20</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>21</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>22</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>23</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>24</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>25</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>26</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>27</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>28</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>29</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>30</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>31</span></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="el-scrollbar__bar is-horizontal">
+                                                                                        <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                                                                    </div>
+                                                                                    <div class="el-scrollbar__bar is-vertical">
+                                                                                        <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!---->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <div class="el-select">
+                                                                            <!---->
+                                                                            <div class="el-input el-input--suffix">
+                                                                                <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="" class="el-input__inner">
+                                                                                <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!----></span>
+                                                                                    <!----></span>
+                                                                                <!---->
+                                                                                <!---->
+                                                                            </div>
+                                                                            <div class="el-select-dropdown el-popper" style="display: none; min-width: 98.9833px;">
+                                                                                <div class="el-scrollbar" style="">
+                                                                                    <div class="el-select-dropdown__wrap el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+                                                                                        <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                                            <!---->
+                                                                                            <li class="el-select-dropdown__item selected hover"><span>----</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2023</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2022</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2021</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2020</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2019</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2018</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2017</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2016</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2015</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2014</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2013</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2012</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2011</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2010</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2009</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2008</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2007</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2006</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2005</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2004</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2003</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2002</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2001</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>2000</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1999</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1998</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1997</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1996</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1995</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1994</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1993</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1992</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1991</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1990</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1989</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1988</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1987</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1986</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1985</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1984</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1983</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1982</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1981</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1980</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1979</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1978</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1977</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1976</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1975</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1974</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1973</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1972</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1971</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1970</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1969</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1968</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1967</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1966</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1965</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1964</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1963</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1962</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1961</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1960</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1959</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1958</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1957</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1956</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1955</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1954</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1953</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1952</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1951</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1950</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1949</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1948</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1947</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1946</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1945</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1944</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1943</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1942</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1941</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1940</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1939</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1938</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1937</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1936</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1935</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1934</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1933</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1932</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1931</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1930</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1929</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1928</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1927</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1926</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1925</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1924</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1923</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1922</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1921</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1920</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1919</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1918</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1917</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1916</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1915</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1914</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1913</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1912</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1911</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1910</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1909</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1908</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1907</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1906</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1905</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1904</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1903</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1902</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1901</span></li>
+                                                                                            <li class="el-select-dropdown__item"><span>1900</span></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="el-scrollbar__bar is-horizontal">
+                                                                                        <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                                                                    </div>
+                                                                                    <div class="el-scrollbar__bar is-vertical">
+                                                                                        <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!---->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group m-t">
+                                                        <div class="m-b-lg"><label><b>Seasons</b></label>
+                                                            <div><button disabled="disabled" type="button" class="el-button el-button--default el-button--medium is-disabled">
+                                                                    <!----><i class="far fa-plus"></i><span> Add New Season</span></button>
+                                                                <table class="table edit-table m-t">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>#</th>
+                                                                            <th>Name</th>
+                                                                            <th>Episodes</th>
+                                                                            <th colspan="2">Air Date</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td colspan="4">No data available.</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div> <label><b>Broadcast Times</b></label>
+                                                        <div class="weekday">
+                                                            <div class="edit-bordered">
+                                                                <div role="group" aria-label="checkbox-group" class="el-checkbox-group"><label class="el-checkbox"><span class="el-checkbox__input"><span class="el-checkbox__inner"></span><input type="checkbox" aria-hidden="false" class="el-checkbox__original" value="1"></span><span class="el-checkbox__label">Monday
+                                                                            <!----></span></label><label class="el-checkbox"><span class="el-checkbox__input"><span class="el-checkbox__inner"></span><input type="checkbox" aria-hidden="false" class="el-checkbox__original" value="2"></span><span class="el-checkbox__label">Tuesday
+                                                                            <!----></span></label><label class="el-checkbox"><span class="el-checkbox__input"><span class="el-checkbox__inner"></span><input type="checkbox" aria-hidden="false" class="el-checkbox__original" value="3"></span><span class="el-checkbox__label">Wednesday
+                                                                            <!----></span></label><label class="el-checkbox"><span class="el-checkbox__input"><span class="el-checkbox__inner"></span><input type="checkbox" aria-hidden="false" class="el-checkbox__original" value="4"></span><span class="el-checkbox__label">Thursday
+                                                                            <!----></span></label><label class="el-checkbox"><span class="el-checkbox__input"><span class="el-checkbox__inner"></span><input type="checkbox" aria-hidden="false" class="el-checkbox__original" value="5"></span><span class="el-checkbox__label">Friday
+                                                                            <!----></span></label><label class="el-checkbox"><span class="el-checkbox__input"><span class="el-checkbox__inner"></span><input type="checkbox" aria-hidden="false" class="el-checkbox__original" value="6"></span><span class="el-checkbox__label">Saturday
+                                                                            <!----></span></label><label class="el-checkbox"><span class="el-checkbox__input"><span class="el-checkbox__inner"></span><input type="checkbox" aria-hidden="false" class="el-checkbox__original" value="7"></span><span class="el-checkbox__label">Sunday
+                                                                            <!----></span></label></div>
+                                                                <div>
+                                                                    <hr>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!---->
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </div>
+                                        </div>
+                                        <div class="box cmpt-box">
+                                            <div id="production" class="edit-container"><a name="release" id="goto_release"></a>
+                                                <div class="pull-right text-muted">0 changes</div>
+                                                <h5 class="m-b-md">Production Information</h5>
+                                                <div class="form-group"><label><b>Origin Language</b></label>
+                                                    <div class="el-select" style="display: block;">
+                                                        <!---->
+                                                        <div class="el-input el-input--suffix">
+                                                            <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="Select" class="el-input__inner">
+                                                            <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <!----></span>
+                                                                <!----></span>
+                                                            <!---->
+                                                            <!---->
+                                                        </div>
+                                                        <div class="el-select-dropdown el-popper" style="display: none; min-width: 714px;">
+                                                            <div class="el-scrollbar" style="">
+                                                                <div class="el-select-dropdown__wrap el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+                                                                    <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                        <!---->
+                                                                        <li class="el-select-dropdown__item"><span>Cantonese</span></li>
+                                                                        <li class="el-select-dropdown__item"><span>English</span></li>
+                                                                        <li class="el-select-dropdown__item"><span>Filipino</span></li>
+                                                                        <li class="el-select-dropdown__item"><span>Japanese</span></li>
+                                                                        <li class="el-select-dropdown__item"><span>Korean</span></li>
+                                                                        <li class="el-select-dropdown__item"><span>Mandarin</span></li>
+                                                                        <li class="el-select-dropdown__item"><span>Other</span></li>
+                                                                        <li class="el-select-dropdown__item"><span>Thai</span></li>
+                                                                        <li class="el-select-dropdown__item"><span>Vietnamese</span></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="el-scrollbar__bar is-horizontal">
+                                                                    <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                                                </div>
+                                                                <div class="el-scrollbar__bar is-vertical">
+                                                                    <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                                                </div>
+                                                            </div>
+                                                            <!---->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"><label><b>Production Countries</b></label>
+                                                    <div class="el-select" style="display: block;">
+                                                        <div class="el-select__tags" style="width: 100%; max-width: 682px;">
+                                                            <!----><span></span><input type="text" autocomplete="off" class="el-select__input" style="flex-grow: 1; width: 0.0293255%; max-width: 672px;"></div>
+                                                        <div class="el-input el-input--suffix">
+                                                            <!----><input tabindex="-1" type="text" readonly="readonly" autocomplete="off" placeholder="Please enter a country name" class="el-input__inner" style="height: 40px;">
+                                                            <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <!----></span>
+                                                                <!----></span>
+                                                            <!---->
+                                                            <!---->
+                                                        </div>
+                                                        <div class="el-select-dropdown el-popper is-multiple" style="display: none; min-width: 714px;">
+                                                            <div class="el-scrollbar" style="">
+                                                                <div class="el-select-dropdown__wrap el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+                                                                    <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                        <!---->
+                                                                        <li class="el-select-dropdown__item"><span>China</span></li>
+                                                                        <li class="el-select-dropdown__item"><span>Hong Kong</span></li>
+                                                                        <li class="el-select-dropdown__item"><span>Japan</span></li>
+                                                                        <li class="el-select-dropdown__item"><span>Philippines</span></li>
+                                                                        <li class="el-select-dropdown__item"><span>South Korea</span></li>
+                                                                        <li class="el-select-dropdown__item"><span>Taiwan</span></li>
+                                                                        <li class="el-select-dropdown__item"><span>Thailand</span></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="el-scrollbar__bar is-horizontal">
+                                                                    <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                                                </div>
+                                                                <div class="el-scrollbar__bar is-vertical">
+                                                                    <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                                                </div>
+                                                            </div>
+                                                            <!---->
+                                                        </div>
+                                                    </div> <small class="text-muted">This is only for co-productions with 2 or more countries involved.</small>
+                                                </div>
+                                                <div class="form-group p-b"><label><b>Original Network</b></label>
+                                                    <div class="el-select" style="display: block;">
+                                                        <div class="el-select__tags" style="width: 100%; max-width: 682px;">
+                                                            <!----><span></span><input type="text" autocomplete="off" class="el-select__input" style="flex-grow: 1; width: 0.0293255%; max-width: 672px;"></div>
+                                                        <div class="el-input el-input--suffix">
+                                                            <!----><input tabindex="-1" type="text" readonly="readonly" autocomplete="off" placeholder="Please enter a network name" class="el-input__inner" style="height: 40px;">
+                                                            <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <!----></span>
+                                                                <!----></span>
+                                                            <!---->
+                                                            <!---->
+                                                        </div>
+                                                        <div class="el-select-dropdown el-popper is-multiple" style="display: none; min-width: 714px;">
+                                                            <div class="el-scrollbar" style="">
+                                                                <div class="el-select-dropdown__wrap el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+                                                                    <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                        <!---->
+                                                                        <ul class="el-select-group__wrap">
+                                                                            <li class="el-select-group__title">China</li>
+                                                                            <li>
+                                                                                <ul class="el-select-group">
+                                                                                    <li class="el-select-dropdown__item"><span>Anhui TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>BTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>CCTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>CDITV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Chongqing TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>CQTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Dragon TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>GDTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>GRT</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>GZTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>HBTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Hubei TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Hunan TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>iQiyi</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>JSTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>JXTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Mango TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Ningbo TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>NNTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Shanghai Television</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Shenzhen TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Sohu TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Tencent Video</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Wuhan TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Youku</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>ZJTV</span></li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <ul class="el-select-group__wrap">
+                                                                            <li class="el-select-group__title">Hong Kong</li>
+                                                                            <li>
+                                                                                <ul class="el-select-group">
+                                                                                    <li class="el-select-dropdown__item"><span>ATV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>HKTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>myTV SUPER</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>RTHK</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>TVB Jade </span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>ViuTV</span></li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <ul class="el-select-group__wrap">
+                                                                            <li class="el-select-group__title">Japan</li>
+                                                                            <li>
+                                                                                <ul class="el-select-group">
+                                                                                    <li class="el-select-dropdown__item"><span>AbemaTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Amazon Prime</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>BeeTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>BS Fuji</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>BS Japan</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>BS4</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Chukyo TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>CS TV Asahi Channel 1</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>DATV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>dTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Fuji TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>GYAO!</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Kansai TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>KTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>LaLa TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>MBS</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Nagoya TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>NBN</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>NHK</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>NHK Etele</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>NTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Osaka Channel</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Paravi</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>SKY PerfecTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>TBS</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Tokai TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Tokyo MX</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>TV Asahi</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>TV Tokyo</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>TVA</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>TXN</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>WOWOW</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>WOWOW Live</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>YTV</span></li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <ul class="el-select-group__wrap">
+                                                                            <li class="el-select-group__title">Philippines</li>
+                                                                            <li>
+                                                                                <ul class="el-select-group">
+                                                                                    <li class="el-select-dropdown__item"><span>ABS-CBN</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>GMA</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>TV5</span></li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <ul class="el-select-group__wrap">
+                                                                            <li class="el-select-group__title">South Korea</li>
+                                                                            <li>
+                                                                                <ul class="el-select-group">
+                                                                                    <li class="el-select-dropdown__item"><span>CGV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Channel A</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Comedy TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Daum Kakao TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>DRAMAcube</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>DramaX</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>E-Channel</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>EBS</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>jTBC</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>K-STAR</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>KBS1</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>KBS2</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>MBC</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>MBC Dramanet</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>MBC every1</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>MBC QueeN</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>MBN</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Mnet</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Naver TV Cast</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>O'live</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>OBS</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>OCN</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Oksusu</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Olleh TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>On Style</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>QTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>SBS</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>SBS Plus</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>SUPER ACTION</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Tooniverse</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>TV Chosun</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>tvN</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>vLive</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>XTM</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>XtvN</span></li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <ul class="el-select-group__wrap">
+                                                                            <li class="el-select-group__title">Taiwan</li>
+                                                                            <li>
+                                                                                <ul class="el-select-group">
+                                                                                    <li class="el-select-dropdown__item"><span>Anhui</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>BOBA</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>CHOCO TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>CTS</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>CTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>EBC</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>FTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>GTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Hakka TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>KKTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>LeTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>LINE TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>MTV Taiwan</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>PTS</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>SET TV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>StarTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>TTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>TVBS</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Vidol</span></li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <ul class="el-select-group__wrap">
+                                                                            <li class="el-select-group__title">Thailand</li>
+                                                                            <li>
+                                                                                <ul class="el-select-group">
+                                                                                    <li class="el-select-dropdown__item"><span>Channel 3</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Channel 5</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Channel 7</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Channel 8</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Channel 9</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>GMM 25</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>GMM One</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Mono 29</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>PPTV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>TITV</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>True4U</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Workpoint TV</span></li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <ul class="el-select-group__wrap">
+                                                                            <li class="el-select-group__title">Others</li>
+                                                                            <li>
+                                                                                <ul class="el-select-group">
+                                                                                    <li class="el-select-dropdown__item"><span>Hulu</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Kocowa</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Netflix</span></li>
+                                                                                    <li class="el-select-dropdown__item"><span>Viki</span></li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="el-scrollbar__bar is-horizontal">
+                                                                    <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                                                </div>
+                                                                <div class="el-scrollbar__bar is-vertical">
+                                                                    <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                                                </div>
+                                                            </div>
+                                                            <!---->
+                                                        </div>
+                                                    </div> <small class="text-muted">Only use the original network where the series or program aired.</small>
+                                                </div>
+                                                <!---->
+                                            </div>
+                                        </div>
+                                        <div class="box cmpt-box">
+                                            <div id="genres" class="edit-container"><a name="release" id="goto_release"></a>
+                                                <div class="pull-right text-muted">0 changes</div>
+                                                <h5 class="m-b-md">Genres &amp; Tags</h5>
+                                                <div class="form-group p-b"><label><b>Genres</b></label>
+                                                    <!---->
+                                                    <div aria-haspopup="listbox" role="combobox" aria-owns="el-autocomplete-2600" class="el-autocomplete tag-autocomplete" style="display: block;">
+                                                        <div class="el-input el-input--suffix">
+                                                            <!----><input type="text" autocomplete="off" valuekey="value" popperclass="tag-popper" placeholder="Please enter a genre" minlength="0" showempty="true" fetchsuggestions="function n(n){var r=arguments.length;return r?r>1?e.apply(t,arguments):e.call(t,n):e.call(t)}" triggeronfocus="true" debounce="300" placement="bottom-start" class="el-input__inner" role="textbox" aria-autocomplete="list" aria-controls="id" aria-activedescendant="el-autocomplete-2600-item--1">
+                                                            <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-icon-search el-input__icon"></i>
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <!----></span>
+                                                                <!----></span>
+                                                            <!---->
+                                                            <!---->
+                                                        </div>
+                                                        <div role="region" class="el-autocomplete-suggestion el-popper tag-popper" style="display: none;">
+                                                            <div class="el-scrollbar">
+                                                                <div class="el-autocomplete-suggestion__wrap el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+                                                                    <ul class="el-scrollbar__view el-autocomplete-suggestion__list" role="listbox" id="el-autocomplete-2600">
+                                                                        <p class="el-select-dropdown__empty" style="margin: 15px 15px 15px 0px;">No match found</p>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="el-scrollbar__bar is-horizontal">
+                                                                    <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                                                </div>
+                                                                <div class="el-scrollbar__bar is-vertical">
+                                                                    <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group p-b"><label><b>Tags</b>
+                                                        <div><small class="text-muted">Click on tag to add or remove spoiler.</small></div>
+                                                    </label>
+                                                    <!---->
+                                                    <div aria-haspopup="listbox" role="combobox" aria-owns="el-autocomplete-1737" class="el-autocomplete tag-autocomplete" style="display: block;">
+                                                        <div class="el-input el-input--suffix">
+                                                            <!----><input type="text" autocomplete="off" valuekey="value" popperclass="tag-ac-popper" placeholder="Search for tags" minlength="3" fetchsuggestions="function n(n){var r=arguments.length;return r?r>1?e.apply(t,arguments):e.call(t,n):e.call(t)}" triggeronfocus="true" debounce="300" placement="bottom-start" class="el-input__inner" role="textbox" aria-autocomplete="list" aria-controls="id" aria-activedescendant="el-autocomplete-1737-item--1">
+                                                            <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-icon-search el-input__icon"></i>
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <!----></span>
+                                                                <!----></span>
+                                                            <!---->
+                                                            <!---->
+                                                        </div>
+                                                        <div role="region" class="el-autocomplete-suggestion el-popper tag-ac-popper" style="display: none;">
+                                                            <div class="el-scrollbar">
+                                                                <div class="el-autocomplete-suggestion__wrap el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+                                                                    <ul class="el-scrollbar__view el-autocomplete-suggestion__list" role="listbox" id="el-autocomplete-1737">
+                                                                        <div class="create-new-tag">Create a new tag: '<b></b>'</div>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="el-scrollbar__bar is-horizontal">
+                                                                    <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                                                </div>
+                                                                <div class="el-scrollbar__bar is-vertical">
+                                                                    <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </div>
+                                        </div>
+                                        <div id="submit" class="box cmpt-box">
+                                            <div class="b-t p-t">
+                                                <div class="form-group">
+                                                    <h5>Additional notes</h5> <small>Post anything you think will help the staff approve your changes (source of information etc)<br>These notes will not be published and are only in order to help staff members approve new dramas/changes.</small>
+                                                    <div class="el-textarea"><textarea autocomplete="off" class="el-textarea__inner" style="min-height: 75px; height: 75px;"></textarea>
+                                                        <!---->
+                                                    </div>
+                                                </div>
+                                                <div class="form-group text-right"><button type="button" class="el-button btn btn-success el-button--success">
+                                                        <!----><i class="el-icon-edit-outline"></i><span><span>Submit</span></span></button> <button type="button" class="el-button el-button--default">
+                                                        <!----><i class="el-icon-delete"></i><span><span>Reset</span></span></button>
+                                                    <!---->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="el-loading-mask" style="display: none;">
+                                    <div class="el-loading-spinner"><svg viewBox="25 25 50 50" class="circular">
+                                            <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
+                                        </svg>
+                                        <!---->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript" src="/dist/en/js/title_add.js?v=5.4.13a4"></script>
+            <div id="btn-bug-report hide"><a href="/discussions/support"><i></i></a></div>
+        </div>
+    </div>
+
+
+    </div>
+
+    <div id="mdl-manage-modal"></div>
+    <div id="mdl-modal"></div>
+    <script type="text/javascript" src="dist/en/js/main.js?v=4.34.1"></script>
+    <script type="text/javascript" src="dist/en/js/mymain.js"></script>
+    <script type="application/javascript">
+        live();
+
+    </script>
+
+</body>
+
+</html>
+
+<?php }else{ header("location: index.php"); } ?>

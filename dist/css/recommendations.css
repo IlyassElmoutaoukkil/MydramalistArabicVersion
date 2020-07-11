@@ -1,0 +1,321 @@
+.btn-mylist-group.active .el-button {
+ background-color:#ecf5ff;
+ border-color:#c0d9f3;
+ color:#409eff
+}
+.rate-dropdown .el-dropdown-menu__item.active {
+ background-color:#deeeff;
+ color:#66b1ff
+}
+#mdl-manage .el-dialog__body {
+ padding:0
+}
+#mdl-manage .el-dialog__header {
+ border-bottom:1px solid #dddd;
+ padding:20px;
+ min-height:65px
+}
+#mdl-manage .el-dialog__footer {
+ border-top:1px solid #dddd;
+ padding:20px;
+ min-height:81.5px
+}
+#mdl-manage .select-rating,
+#mdl-manage .select-watch-status {
+ border-radius:4px
+}
+#mdl-manage .btn-default {
+ min-height:40px;
+ margin-right:5px
+}
+#mdl-manage .btn-social {
+ margin-right:5px;
+ width:36px;
+ height:36px;
+ line-height:35px
+}
+#mdl-manage-modal .watch-points .el-button:focus {
+ color:#606266;
+ border-color:#dcdfe6;
+ background-color:#fff
+}
+#mdl-manage-modal .watch-points .el-button.selected {
+ color:#1675b6;
+ border-color:#409eff;
+ background-color:#ecf5ff
+}
+#recs-platform .titles-list {
+ text-align:center
+}
+#recs-platform h1 {
+ font-size:26px;
+ margin:16px 0 6px
+}
+#recs-platform .recs-container {
+ display:-webkit-box;
+ display:-ms-flexbox;
+ display:flex;
+ -ms-flex-wrap:wrap;
+ flex-wrap:wrap
+}
+#recs-platform .recs-left {
+ width:262px;
+ margin-right:16px
+}
+#recs-platform .recs-right {
+ -webkit-box-flex:1;
+ -ms-flex:1;
+ flex:1
+}
+#recs-platform .rate-sidenav {
+ background-color:#f5f7fa;
+ border-radius:5px;
+ padding:0 0 16px;
+ margin-bottom:20px
+}
+#recs-platform .rate-header {
+ margin-bottom:20px;
+ text-align:left;
+ min-height:40px
+}
+#recs-platform .film-wrapper {
+ position:relative
+}
+#recs-platform .film-wrapper>a {
+ display:block;
+ position:absolute;
+ bottom:0;
+ left:0;
+ right:0;
+ top:0
+}
+#recs-platform h4 {
+ text-align:left;
+ font-size:16px;
+ margin-bottom:12px;
+ padding-top:12px;
+ padding-left:12px
+}
+#recs-platform .mdl-nav {
+ text-align:left
+}
+#recs-platform .mdl-nav li {
+ padding:0 0 0 10px;
+ line-height:30px;
+ color:#606266;
+ cursor:pointer;
+ padding-left:20px
+}
+#recs-platform .mdl-nav li.active,
+#recs-platform .mdl-nav li:hover {
+ background-color:#fff;
+ color:#1675b6
+}
+#recs-platform .film-title {
+ text-overflow:ellipsis;
+ white-space:nowrap;
+ overflow:hidden;
+ padding:8px 0;
+ font-weight:700
+}
+#recs-platform .film-cover {
+ position:relative;
+ min-height:222px;
+ background-color:#eee
+}
+#recs-platform .film-cover i.mdl-play-trailer {
+ position:absolute;
+ display:none;
+ font-size:40px;
+ width:100%;
+ height:100%;
+ color:#fff;
+ text-align:center;
+ background-color:rgba(0,0,0,.4);
+ z-index:1;
+ line-height:195px
+}
+#recs-platform .film-cover:hover .mdl-play-trailer {
+ display:block
+}
+#recs-platform .dstar-wrapper {
+ margin:5px 0
+}
+#recs-platform .btn-mylist-group {
+ white-space:nowrap
+}
+#recs-platform .btn-mylist-group button {
+ padding:8px 12px
+}
+#recs-platform .btn-mylist-group button>span {
+ text-overflow:ellipsis;
+ max-width:88px;
+ display:block;
+ overflow:hidden
+}
+#recs-platform .btn-mylist-group .el-dropdown button {
+ border-radius:0 4px 4px 0;
+ margin-right:0
+}
+#recs-platform .edit-favorites {
+ font-size:12px;
+ font-weight:400
+}
+#recs-platform .rated-progress {
+ width:137px;
+ padding:6px 0
+}
+#recs-platform .titles-list {
+ min-height:200px
+}
+#recs-platform .search-box {
+ position:relative
+}
+#recs-platform .btn-clear {
+ position:absolute;
+ z-index:9;
+ right:7px;
+ top:8px;
+ border:1px solid #dcdfe6;
+ padding:5px 8px;
+ box-shadow:none
+}
+#recs-platform .btn-pwt {
+ padding:8px 16px;
+ display:block;
+ width:100%
+}
+#recs-platform .btn-custom {
+ max-width:36.5px
+}
+@media(max-width:47.9em) {
+ #recs-platform .btn-mylist-group button>span {
+  max-width:90px
+ }
+}
+.title-card {
+ width:158px;
+ margin:6px 16px
+}
+.title-card-move {
+ transition:all .6s ease-in-out 50ms
+}
+.title-card-enter-active {
+ transition:all .3s ease-out
+}
+.title-card-leave-active {
+ opacity:0;
+ transition:all .5s ease-in;
+ position:absolute;
+ bottom:0;
+ z-index:0
+}
+.title-card-enter,
+.title-card-leave-to {
+ opacity:0
+}
+.title-card-enter {
+ -webkit-transform:scale(.9);
+ transform:scale(.9)
+}
+.flex-wrap-movielist {
+ display:-ms-flexbox;
+ display:-webkit-box;
+ display:flex;
+ -webkit-box-align:center;
+ -ms-flex-align:center;
+ align-items:center;
+ -webkit-box-pack:start;
+ -ms-flex-pack:start;
+ justify-content:flex-start;
+ -ms-flex-wrap:wrap;
+ flex-wrap:wrap;
+ -webkit-box-align:inherit;
+ -ms-flex-align:inherit;
+ align-items:inherit;
+ margin-right:-30px
+}
+.recs-filter {
+ padding-bottom:16px
+}
+.recs-filter .filter-item {
+ display:inline-block;
+ margin-right:12px
+}
+.recs-filter .filter-options {
+ padding-top:12px
+}
+.recs-filter .filter-options>.el-tag {
+ margin-right:5px
+}
+.recs-active-filter {
+ background-color:#f5f7fa
+}
+.recs-active-filter:after {
+ content:"\F00C";
+ color:#5cb85c;
+ padding-left:6px;
+ font-family:Font Awesome\ 5 Pro;
+ font-weight:400;
+ float:right
+}
+@media(max-width:1024px) {
+ .title-card {
+  width:144px
+ }
+ #recs-platform .film-cover {
+  min-height:202px
+ }
+}
+@media(max-width:834px) {
+ .title-card {
+  width:137px
+ }
+ #recs-platform .film-cover {
+  min-height:192px
+ }
+}
+@media(max-width:991px) {
+ .flex-wrap-movielist .movie-item-style-2 {
+  margin-right:10px
+ }
+}
+@media(max-width:812px) {
+ .flex-wrap-movielist {
+  max-width:200px;
+  margin:0 auto
+ }
+}
+.grid-fav .movie-item-style-2 {
+ margin-right:15px
+}
+@media(max-width:991px) {
+ .grid-fav {
+  max-width:100%
+ }
+ .grid-fav .movie-item-style-2 {
+  margin-right:20px;
+  margin-left:25px
+ }
+}
+@media(max-width:812px) {
+ .grid-fav .movie-item-style-2 {
+  margin-right:0
+ }
+ .title-card {
+  width:150px;
+  margin:6px auto
+ }
+}
+@media(max-width:375px) {
+ #recs-platform .recs-left {
+  width:100%
+ }
+ .title-card {
+  width:140px;
+  margin:6px auto
+ }
+ #recs-platform .film-cover {
+  min-height:198px
+ }
+}

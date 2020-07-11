@@ -1,0 +1,166 @@
+.new-title-confirmed .el-input__inner {
+ border-color:#6cc788
+}
+.new-title-confirmed .el-input__icon {
+ color:#6cc788
+}
+.create-new-tag {
+ padding:12px 16px
+}
+.create-new-tag>i {
+ float:right;
+ font-size:16px;
+ margin-top:3px
+}
+.create-new-tag:hover {
+ color:#2196f3;
+ cursor:pointer;
+ background-color:#f8f8f8
+}
+.create-new-tag.loading>span {
+ opacity:.5
+}
+.create-new-tag.loading:hover {
+ color:inherit;
+ background-color:inherit;
+ cursor:default
+}
+.tags-list {
+ padding:12px;
+ border:1px solid #ebeef5;
+ border-radius:3px
+}
+.tags-list.has-edited {
+ padding:12px;
+ background-color:rgba(33,150,243,.04);
+ border-radius:3px;
+ border-color:#2196f3
+}
+.tags-list .kw-tag {
+ padding:0 10px;
+ height:32px;
+ line-height:30px;
+ font-size:13px;
+ color:#1675b6;
+ box-sizing:border-box;
+ white-space:nowrap;
+ background-color:#f0f2f6;
+ border:1px solid #f0f2f6;
+ margin-right:10px;
+ margin-bottom:10px;
+ border-radius:4px
+}
+.tags-list .kw-tag,
+.tags-list .kw-tag>span {
+ display:inline-block
+}
+.tags-list.has-edited .kw-tag {
+ background-color:#fff;
+ border:1px solid #d4d9dd
+}
+.tags-list .kw-tag .kw-tag-close {
+ border-radius:50%;
+ text-align:center;
+ position:relative;
+ cursor:pointer;
+ font-size:12px;
+ height:16px;
+ width:16px;
+ line-height:16px;
+ vertical-align:middle;
+ top:-1px;
+ right:-5px;
+ color:#1675b6
+}
+.tags-list .kw-tag .kw-tag-close:hover {
+ background-color:#1675b6;
+ color:#fff
+}
+.tags-list .kw-tag.deleted {
+ color:#ea6262;
+ background-color:#ffe9e9;
+ border:1px solid #ffb2b2
+}
+.tags-list .kw-tag.deleted .kw-tag-close {
+ color:#f56c6c
+}
+.tags-list .kw-tag.deleted .kw-tag-close:hover {
+ background-color:#f56c6c;
+ color:#fff
+}
+.tags-list .kw-tag.created {
+ color:#5cb85c;
+ background-color:#f9fff9;
+ border:1px solid #5cb85c
+}
+.tags-list .kw-tag.updated {
+ font-weight:700;
+ border:1px solid #3a8ee6;
+ background-color:#e2f0ff
+}
+.tags-list .kw-tag.tog-spoiler {
+ cursor:pointer
+}
+.tags-list .kw-tag.created .kw-tag-close {
+ color:#5cb85c
+}
+.tags-list .kw-tag.created .kw-tag-close:hover {
+ background-color:#5cb85c;
+ color:#fff
+}
+.tags-list .kw-tag .spoiler {
+ color:#f56c6c;
+ font-size:12px
+}
+.tag-autocomplete {
+ width:50%;
+ margin-top:15px
+}
+.tag-popper li {
+ text-transform:capitalize
+}
+.tag-popper li .selected {
+ color:#409eff;
+ position:relative;
+ font-weight:700
+}
+.tag-popper li .selected:after {
+ font-family:Font Awesome\ 5 Pro;
+ content:"\F00C";
+ position:absolute;
+ right:20px;
+ font-size:12px;
+ font-weight:400;
+ -webkit-font-smoothing:antialiased
+}
+.tag-popper li .selected.deleted {
+ color:#f56c6c
+}
+.tag-popper li .selected.is-new {
+ color:#5cb85c
+}
+.tag-popper li .selected.deleted:after {
+ content:"\F0E2"
+}
+.el-form-item__content {
+ line-height:inherit
+}
+.el-textarea__inner {
+ overflow-y:hidden!important
+}
+.el-tag {
+ font-size:14px;
+ color:#373a3c
+}
+.el-autocomplete-suggestion li {
+ line-height:inherit;
+ padding:10px 20px
+}
+.el-form-item.is-success .el-input__inner,
+.el-form-item.is-success .el-input__inner:focus {
+ border-color:#dcdfe6
+}
+.el-form-item.is-success.has-edited .el-input__inner,
+.el-form-item.is-success.has-edited .el-input__inner:focus {
+ border-color:#2196f3
+}

@@ -1,0 +1,602 @@
+
+<div class="feeds-list">
+                                        <?php 
+                                                    if (isset($_GET['pr'])){
+                                                        if ($_GET['pr']=='friends'){
+                                                            $op='fr';
+                                                            $sql="SELECT * FROM feed JOIN friend ON feed.from=feed.to OR ";
+                                                           //-->get if the poster if a friend and show it > 
+                                                            
+                                                        }else{
+                                                            $op='pb';
+                                                            $sql="SELECT * FROM feed";
+                                                        }
+                                                    }else{
+                                                            $op='pb';
+                                                            $sql="SELECT * FROM feed";
+                                                    }
+                                                    
+                                                        $stmte = $conn->prepare($sql);
+                                                        $stmte->execute();
+                                                        $resulte=$stmte->get_result();
+                                                        $numr=$resulte->num_rows;
+                                                        
+                                                        
+                                                    ?>
+
+                                        <?php 
+                                        while($feedinfo=$resulte->fetch_assoc()){
+                                        ?>
+                                        <div id="feed_<?php echo $feedinfo['id']; ?>" class="feed_story">
+                                            <div class="box">
+                                                <div class="feed-wrapper">
+
+
+                                                    <div id="feedb_<?php echo $feedinfo['id']; ?>" class="box-body feed-body">
+                                                        <div class="author-meta" style="display: inline-flex;">
+                                                            <?php 
+                                                            $useri;
+                                                            $useri=userinfo($feedinfo['idU']);
+                                                            ?>
+                                                            <a target="_blank" href="profile.php?id=<?php echo $feedinfo['idU']; ?>" class="feed_author">
+                                                                <img src="process/<?php echo $useri['picture']; ?>" class="w-48 avatar">
+                                                            </a>
+                                                            <div class="header" style="margin-right: 10px">
+                                                                <a target="_blank" href="?profile.php?id=<?php  echo $useri['id'] ?>" class="text-primary author-name">
+                                                                    <?php  echo $useri['username']; ?>
+                                                                </a>
+                                                                <div class="feed-status">
+
+                                                                </div>
+                                                                <div class="feed-date">
+                                                                    <i title="public" class="stream-icon public"></i>
+                                                                    <script type="application/javascript">
+                                                                        moment.locale("ar_AL");
+                                                                        document.write(moment('<?php echo $feedinfo['wn'] ?>', "YYYY-MM-DD hh:mm:ss").fromNow());
+
+                                                                    </script>
+                                                                </div>
+                                                            </div>
+                                                            <div class="box-tool" style="right:96%">
+                                                                <div class="options dropdown">
+                                                                    <a data-toggle="dropdown" class="menu"></a>
+                                                                    <?php if (isset($_SESSION['id'])){ ?>
+                                                                    <?php if($_SESSION['id']==$feedinfo['idU']){ ?>
+
+                                                                    <div class="dropdown-menu dropdown-menu-scale pull-right">
+                                                                        <a href="#" class="dropdown-item ">تعديل</a>
+                                                                        <a href="#" class="dropdown-item ">حذف</a>
+                                                                    </div>
+
+                                                                    <?php }else{ ?>
+                                                                    <div class="dropdown-menu dropdown-menu-scale pull-right">
+                                                                        <a href="#" class="dropdown-item ">إبلاغ</a>
+                                                                    </div>
+                                                                    <?php } ?>
+
+                                                                    <?php }else{ ?>
+                                                                    <div class="dropdown-menu dropdown-menu-scale pull-right">
+                                                                        <a href="#" class="dropdown-item ">إبلاغ</a>
+                                                                    </div>
+                                                                    <?php } ?>
+
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <?php if($feedinfo['text']==''){}else{ ?>
+                                                        <p class="feed-desc"><?php echo $feedinfo['text']; ?></p>
+                                                        <?php } ?>
+
+                                                        <div class="feed-attachment posts">
+                                                            <div class="feed-collage collage-0">
+
+                                                            </div>
+                                                        </div>
+
+                                                        <?php if ($feedinfo['post']==''){}else{ ?>
+                                                        <?php  $ti; $ti=titleinfo($feedinfo['post']); ?>
+
+                                                        <div class="media-tag-item">
+                                                            <a target="_blank" class="media-tag-cover" href="post?id=<?php echo $ti['id']; ?>" style="margin-left:15px;">
+                                                                <img src="process/<?php echo $ti['image']; ?>" class="img-responsive">
+                                                            </a>
+                                                            <div class="media-tag-body">
+                                                                <a target="_blank" class="media-tag-title" href="post?id=<?php echo $ti['id']; ?>">
+
+                                                                    <?php echo $ti['title']; ?></a>
+
+                                                                <div class="media-tag-text"><?php echo substr($ti['synopsis'],0,100); ?></div>
+                                                            </div>
+                                                        </div>
+
+                                                        <?php } ?>
+
+
+                                                        <div class="box-social-footer pull-right">
+
+                                                            <?php
+                                                            
+                                                            $stmtmL = $conn->prepare("SELECT * FROM likes WHERE postT='fd' AND idP=? AND idL!=''");
+                                                            $stmtmL->bind_param('s', $feedinfo['id']);
+                                                            $stmtmL->execute();
+                                                            $resultmL=$stmtmL->get_result();
+                                                            
+                                                            
+                                                            ?>
+
+                                                            <span onclick="opertion('fd|like','<?php echo $feedinfo['id']; ?>')" class="feed-social">
+
+
+                                                                <span class="likes-cnt" id="likenumfd<?php echo $feedinfo['id']; ?>"><?php echo $resultmL->num_rows; ?></span>
+                                                                <button id="likedivfd<?php echo $feedinfo['id']; ?>" class="story-like"></button>
+
+
+                                                                <!--
+                                                               
+-->
+                                                            </span>
+
+                                                            <?php
+                                                            $stmtmC = $conn->prepare("SELECT * FROM comments WHERE postT='fd' AND idP=?");
+                                                            $stmtmC->bind_param('s', $feedinfo['id']);
+                                                            $stmtmC->execute();
+                                                            $resultmC=$stmtmC->get_result();
+                                                            ?>
+                                                            <span class="feed-social hmr_10">
+                                                                <span class="cmts-cnt"><?php echo $resultmC->num_rows; ?></span>
+                                                                <a id="liked" class="btn-cmts"></a>
+                                                            </span>
+
+                                                        </div>
+
+
+                                                        <div class="feed-users-likes">
+
+
+
+                                                            <?php while($likers=$resultmL->fetch_assoc()){ ?>
+
+                                                            <a target="_blank" href="?profile.php?id=<?php $datal;$datal=userinfo($likers['idL']); ?>" data-meta="<?php echo $datal['username']; ?>" title="<?php echo $datal['username']; ?>" class="w-24 avatar">
+                                                                <img src="process/<?php echo $datal['picture']; ?>" width="24">
+                                                            </a>
+
+                                                            <?php } ?>
+
+
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="feed-comments box-body">
+                                                        
+                                                        <div class="thread-post-form">
+                                                            <div class="post-form-body">
+                                                                <div class="avatar"><img src="process/<?php echo $_SESSION['img']; ?>" class="user-avatar"></div>
+                                                                <div class="post-form-textarea">
+                                                                    <div class="form-group">
+                                                                        <div class="el-textarea">
+                                                                            <textarea id="addco<?php echo $feedinfo['id']; ?>" autocomplete="off" placeholder="أضف تعليقا..." class="el-textarea__inner" style="min-height: 33px; height: 33px;"></textarea>
+                                                                            <!---->
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="text-left post-form-footer">
+                                                                        <input type="checkbox" id="spoi<?php echo $feedinfo['id']; ?>" aria-hidden="false" class="el-checkbox__original commspoi" value="">
+                                                                        
+                                                                        <button  id="sendc<?php echo $feedinfo['id']; ?>" onclick="opertion('fd|comment','<?php echo $feedinfo['id']; ?>')" type="button" class="el-button btn white m-l-sm el-button--default el-button--mini">
+                                                                            <!---->
+                                                                            <!----><span>نشر</span></button>
+                                                                        <!---->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <script>
+                                                                $('#spoi, .commspoi').bootstrapToggle({
+                                                                    off: 'عام',
+                                                                    on: 'حرق',
+                                                                    onstyle: 'danger',
+                                                                    size: 'mini'
+                                                                });
+
+                                                            </script>
+                                <ul id="comment-top<?php echo $feedinfo['id']; ?>" class="post-list">
+
+
+
+                                    <?php
+                                    $stmtn = $conn->prepare("SELECT 
+                                    comments.id ,
+                                    comments.comment ,
+                                    comments.idU ,
+                                    comments.spoiler,
+                                    comments.idP,
+                                    comments.postT as postTc,
+                                    comments.wn ,
+                                    
+                                    users.username,
+                                    users.picture,
+                                    users.code,
+                                    
+                                    reports.idR,
+                                    count(reports.idP) as reported,
+                                    reports.idT,
+                                    
+                                    count(replies.id) as repn,
+                                    replies.idU,
+                                    
+                                    likes.idL,
+                                    likes.idP,
+                                    likes.postT,
+                                    count(likes.idP)
+                                    
+                                    FROM comments  
+                                    
+                                    JOIN users ON users.code=comments.idU 
+                                    
+                                    JOIN likes ON likes.idP=comments.id 
+                                    
+                                    JOIN replies ON replies.idC=comments.id 
+                                    
+                                    JOIN reports ON reports.idP=comments.id  
+                                    
+                                    WHERE comments.idP=? AND comments.postT='fd' AND reports.idT='cm'  AND likes.postT='cm' GROUP BY comments.id ORDER BY comments.wn DESC 
+                                    
+                                    LIMIT 0,6
+                                    ");
+                                    $stmtn->bind_param("s", $feedinfo['id']);
+                                    $stmtn->execute();
+                                    $comm=$stmtn->get_result();
+                                        
+                                    while($comminfo=$comm->fetch_assoc()){
+
+                                    ?>
+
+                                    <li id="commentid<?php echo $comminfo['id']; ?>" class="post comment">
+                                        <!---->
+                                        <div class="post-content">
+                                            <ul class="post-tooltip post-menu hidden-xs-down">
+                                                <li>
+
+                                                    <span id="likedivcm<?php echo $comminfo['id']; ?>" onclick="opertion('cm|like','<?php echo $comminfo['id']; ?>')" class="btn-like <?php if(detailpost($comminfo['id'],'cm')['myL']=='true'){ ?>active<?php }else{  } ?>">
+
+                                                        <b id="likenumcm<?php echo $comminfo['id']; ?>"><?php echo detailpost($comminfo['id'],'cm')['postL']; ?></b> <i class="like-heart"></i></span></li>
+
+
+
+
+                                                <?php if ($comminfo['reported']<100){ ?>
+
+                                                <?php
+                                                    if (isset($_SESSION['id'])){
+                                                            $stmtn = $conn->prepare("SELECT idP,idR FROM reports WHERE idP=? AND idR=? AND idR='cm' ");
+                                                            $stmtn->bind_param("ss", $comminfo['id'], $_SESSION['id']);
+                                                            $stmtn->execute();
+                                                            $resu=$stmtn->get_result();
+                                                            if ($resu->num_rows!=0){
+                                                                $comminfo['idR']='true';
+                                                            }else{
+                                                                $comminfo['idR']='false';
+                                                            }
+                                                        $stmtn->close();
+                                                    }else{
+                                                        $comminfo['idR']='false';
+                                                    }
+                                                ?>
+
+
+                                                <li class="dropdown">
+                                                    <?php if($comminfo['idR']=='true'){ ?>
+                                                    <a href="#" data-toggle="dropdown" rel="nofollow" id="menut<?php echo $comminfo['id']; ?>" class=""><i style="color:red" class="fa fa-flag"></i></a>
+                                                    <?php }else{ ?>
+                                                    <a href="#" data-toggle="dropdown" rel="nofollow" id="menut<?php echo $comminfo['id']; ?>" class="menu-toggle"></a>
+                                                    <?php }   ?>
+                                                    <?php if(isset($_SESSION['id'])){ ?>
+                                                    <?php if($comminfo['code']==$myid){ ?>
+
+                                                    <div class="dropdown-menu dropdown-menu-scale pull-right">
+
+                                                        <a class="dropdown-item story-share" onclick="upd_c('<?php echo $comminfo['postTc'] ?>','<?php echo $comminfo['id'] ?>','<?php echo $feedinfo['id'] ?>','<?php echo $comminfo['spoiler'] ?>')">تعديل</a>
+
+                                                        <a class="dropdown-item story-share" onclick="opertion('deletec_c','<?php echo $comminfo['id'] ?>')">حذف</a>
+
+                                                    </div>
+
+                                                    <?php }else{ ?>
+                                                    <div class="dropdown-menu dropdown-menu-scale pull-right"><a onclick="opertion(`cm|report`,`<?php echo $comminfo['id'] ?>`)" id="menutdiv<?php echo $comminfo['id']; ?>" class="dropdown-item story-share">تبليغ</a> </div>
+                                                    <?php }} ?>
+                                                </li>
+                                                <?php } ?>
+
+                                                <li><a onclick="addrep('<?php echo $comminfo['id'] ?>')" class="reply">رد</a></li>
+                                            </ul>
+                                            <div class="avatar"><span class="user in-link"><img style="height:100%" src="process/<?php echo $comminfo['picture']; ?>" class="user-avatar"></span></div>
+                                            <div class="post-body">
+                                                <div class="post-header p-b-xs"><a href="profile.php?id=<?php echo $comminfo['code']; ?>" target="_blank" class="user-display text-primary in-link"><b><?php echo $comminfo['username']; ?></b></a> <span class="mdl-utag"><span class="mdl-btag">
+                                                            <!---->
+                                                            <!----></span>
+                                                        <!---->
+                                                        <!----></span> <span class="date">
+                                                        <script type="application/javascript">
+                                                            moment.locale("ar_AL");
+                                                            document.write(moment('<?php echo $comminfo['wn'] ?>', "YYYY-MM-DD hh:mm:ss").tz('Africa/Casablanca').fromNow());
+
+                                                        </script>
+                                                    </span></div>
+                                                <?php if ($comminfo['reported']<100){ ?>
+                                                <?php if($comminfo['spoiler']=='true'){ ?>
+                                                <div class="post-message" id="post_message<?php echo $comminfo['id'] ?>">
+                                                    <div>
+                                                        <a onclick="spoilerP('cm','<?php echo $comminfo['id']; ?>')" id="spdcm<?php echo $comminfo['id'] ?>" class="btn btn-xs btn-spoiler">إظهار التعليق</a>
+                                                        <div id="spcm<?php echo $comminfo['id'] ?>" style="display:none" class="spoiler p-a">
+                                                            <p id="message<?php echo $comminfo['id'] ?>"><?php echo $comminfo['comment']; ?></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <?php }else{?>
+                                                <div id="post_message<?php echo $comminfo['id'] ?>" class="post-message">
+                                                    <p id="message<?php echo $comminfo['id'] ?>"><?php echo $comminfo['comment']; ?></p>
+                                                </div>
+                                                <?php } ?>
+
+                                                <?php }else{ ?>
+                                                <div id="post_message<?php echo $comminfo['id'] ?>" class="post-message">
+                                                    <span style="color:red;border-right:2px solid red;border-left:2px solid red;padding-right:5px ;padding-left:5px">تم حدف التعليق، بسبب التبليغ عنه بشدة.</span>
+                                                </div>
+                                                <?php } ?>
+
+
+
+                                                <ul class="post-tooltip post-menu-footer hidden-sm-up"> <!-- Comments  -->
+                                                    
+                                                    
+                                                    <li class="dropdown">
+                                                        <?php if($comminfo['idR']=='true'){ ?>
+                                                    <a href="#" data-toggle="dropdown" rel="nofollow" id="menut<?php echo $comminfo['id']; ?>" class=""><i style="color:red" class="fa fa-flag"></i></a>
+                                                    <?php }else{ ?>
+                                                    <a href="#" data-toggle="dropdown" rel="nofollow" id="menut<?php echo $comminfo['id']; ?>" class="menu-toggle"></a>
+                                                    <?php }   ?>
+                                                    <?php if(isset($_SESSION['id'])){ ?>
+                                                    <?php if($comminfo['code']==$myid){ ?>
+
+                                                    <div class="dropdown-menu dropdown-menu-scale pull-right">
+
+                                                        <a class="dropdown-item story-share" onclick="upd_c('<?php echo $comminfo['postTc'] ?>','<?php echo $comminfo['id'] ?>','<?php echo $feedinfo['id'] ?>','<?php echo $comminfo['spoiler'] ?>')">تعديل</a>
+
+                                                        <a class="dropdown-item story-share" onclick="opertion('deletec_c','<?php echo $comminfo['id'] ?>')">حذف</a>
+
+                                                    </div>
+
+                                                    <?php }else{ ?>
+                                                    <div class="dropdown-menu dropdown-menu-scale pull-right"><a onclick="opertion(`cm|report`,`<?php echo $comminfo['id'] ?>`)" id="menutdiv<?php echo $comminfo['id']; ?>" class="dropdown-item story-share">تبليغ</a> </div>
+                                                    <?php }} ?>
+                                                    </li>
+                                                    
+                                                    
+                                                    <li><span id="likedivminicm<?php echo $comminfo['id']; ?>" onclick="opertion('cm|like','<?php echo $comminfo['id']; ?>')" class="btn-like <?php if(detailpost($comminfo['id'],'cm')['myL']=='true'){ ?>active<?php }else{  } ?>"> <b id="likenumcm<?php echo $comminfo['id']; ?>"><?php echo detailpost($comminfo['id'],'cm')['postL']; ?></b>  <i class="like-heart"></i></span></li>
+                                                    
+                                                    
+                                                    <li><a onclick="addrep('<?php echo $comminfo['id'] ?>')" class="reply">رد</a></li>
+                                                    
+                                                    
+                                                </ul>
+                                                <!---->
+                                            </div>
+                                        </div>
+                                        <!---->
+                                        <!---->
+                                        <?php if ($comminfo['repn']==0){}else{ ?>
+                                        <ul class="children" id="children<?php echo $comminfo['id']; ?>">
+                                            <?php 
+                                    $stmtn = $conn->prepare("SELECT 
+                                    
+                                    replies.id ,
+                                    replies.replie ,
+                                    replies.idU ,
+                                    replies.spoiler,
+                                    replies.idC,
+                                    replies.wn ,
+                                    
+                                    users.username,
+                                    users.picture,
+                                    users.code,
+                                    
+                                    reports.idR,
+                                    count(reports.idP) as reported,
+                                    reports.idT,
+                                    
+                                    likes.idL,
+                                    likes.idP,
+                                    likes.postT,
+                                    count(likes.idP)
+                                    
+                                    FROM replies  
+                                    
+                                    JOIN users ON users.code=replies.idU 
+                                    
+                                    JOIN likes ON likes.idP=replies.id 
+                                                                        
+                                    JOIN reports ON reports.idP=replies.id  
+                                    
+                                    WHERE replies.idC=? AND reports.idT='rp' AND replies.idU!='' AND likes.postT='rp' GROUP BY replies.id ORDER BY replies.wn DESC 
+                                    
+                                    ");
+                                    $stmtn->bind_param("s", $comminfo['id']);
+                                    $stmtn->execute();
+                                    $rep=$stmtn->get_result();
+                                        
+                                    while($repinfo=$rep->fetch_assoc()){ ?>
+                                            
+                                            <?php $repD; $repD=detailpost($repinfo['id'],'rp'); ?>
+                                            <li id="repid<?php echo $repinfo['id']; ?>" class="post comment">
+                                                <!---->
+                                                <div class="post-content">
+                                                    <ul class="post-tooltip post-menu hidden-xs-down">
+                                                        
+                                                        <li>
+                                                            <span id="likedivrp<?php echo $repinfo['id']; ?>" onclick="opertion('rp|like','<?php echo $repinfo['id']; ?>')" class="btn-like <?php if(detailpost($repinfo['id'],'rp')['myL']=='true'){ ?>active<?php }else{  } ?>">
+
+                                                                <b id="likenumrp<?php echo $repinfo['id']; ?>">
+                                                                    <?php echo detailpost($repinfo['id'],'rp')['postL']; ?>
+                                                                </b>
+                                                                
+                                                                <i class="like-heart"></i>
+                                                            </span>
+                                                        </li>
+
+
+
+
+                                                        <?php if ($repinfo['reported']<100){ ?>
+
+                                                        <?php
+                                                    if (isset($_SESSION['id'])){
+                                                            $stmtn = $conn->prepare("SELECT idP,idR,idT FROM reports WHERE idP=? AND idR=? AND idT='rp' ");
+                                                            $stmtn->bind_param("ss", $repinfo['id'], $_SESSION['id']);
+                                                            $stmtn->execute();
+                                                            $resu=$stmtn->get_result();
+                                                            if ($resu->num_rows!=0){
+                                                                $repinfo['idR']='true';
+                                                            }else{
+                                                                $repinfo['idR']='false';
+                                                            }
+                                                    }else{
+                                                        $repinfo['idR']='false';
+                                                    }
+                                                ?>
+
+
+                                                        <li class="dropdown">
+                                                            <?php if($repinfo['idR']=='true'){ ?>
+                                                            <a href="#" data-toggle="dropdown" rel="nofollow" id="menutr<?php echo $repinfo['id']; ?>" class=""><i style="color:red" class="fa fa-flag"></i></a>
+                                                            <?php }else{ ?>
+                                                            <a href="#" data-toggle="dropdown" rel="nofollow" id="menutr<?php echo $repinfo['id']; ?>" class="menu-toggle"></a>
+                                                            <?php } ?>
+
+                                                            <?php if( isset($_SESSION['id']) && $repinfo['idU']==$_SESSION['id']){ ?>
+                                                            
+                                                            <div class="dropdown-menu dropdown-menu-scale pull-right">
+
+                                                                <a class="dropdown-item story-share" onclick="upd_r('<?php echo $repinfo['id'] ?>','<?php echo $repinfo['spoiler'] ?>')">تعديل</a>
+
+                                                                <a class="dropdown-item story-share" onclick="opertion('deletec_r','<?php echo $repinfo['id'] ?>')">حذف</a>
+
+                                                            </div>
+
+                                                            <?php }else{ ?>
+                                                               <?php if($repinfo['idR']=='true'){ ?>
+                                                                    
+                                                                    <div class="dropdown-menu dropdown-menu-scale pull-right">
+                                                                        <a onclick="opertion(`rp|report`,`<?php echo $repinfo['id'] ?>`)" id="menutdivr<?php echo $repinfo['id']; ?>" class="dropdown-item story-share">إلغاء التبليغ</a></div>
+                                                               <?php }else{ ?>
+                                                                    <div class="dropdown-menu dropdown-menu-scale pull-right">
+                                                                        <a onclick="opertion(`rp|report`,`<?php echo $repinfo['id'] ?>`)" id="menutdivr<?php echo $repinfo['id']; ?>" class="dropdown-item story-share">تبليغ</a>
+                                                                    </div>
+                                                                 <?php } ?>
+                                                            <?php } ?>
+                                                        </li>
+                                                        <?php } ?>
+
+                                                        
+                                                    </ul>
+                                                    <div class="avatar"><span class="user in-link"><img style="height:100%" src="process/<?php echo $repinfo['picture']; ?>" class="user-avatar"></span></div>
+                                                    <div class="post-body">
+                                                        <div class="post-header p-b-xs"><a href="profile.php?id=<?php echo $repinfo['code']; ?>" target="_blank" class="user-display text-primary in-link"><b><?php echo $repinfo['username']; ?></b></a> <span class="mdl-utag"><span class="mdl-btag">
+                                                                    <!---->
+                                                                    <!----></span>
+                                                                <!---->
+                                                                <!----></span> <span class="date">
+                                                                <script type="application/javascript">
+                                                                    moment.locale("ar_AL");
+                                                                    document.write(moment('<?php echo $repinfo['wn'] ?>', "YYYY-MM-DD hh:mm:ss").tz('Africa/Casablanca').fromNow());
+
+                                                                </script>
+                                                            </span></div>
+                                                        <?php if ($repinfo['reported']<100){ ?>
+                                                        <?php if($repinfo['spoiler']=='true'){ ?>
+                                                        <div class="post-message" id="post_messageR<?php echo $repinfo['id'] ?>">
+                                                            <div>
+                                                                <a onclick="spoilerP('rp','<?php echo $repinfo['id']; ?>')" id="spdrp<?php echo $repinfo['id'] ?>" class="btn btn-xs btn-spoiler">إظهار التعليق</a>
+                                                                <div id="sprp<?php echo $repinfo['id'] ?>" style="display:none" class="spoiler p-a">
+                                                                    <p id="Rmessage<?php echo $repinfo['id'] ?>"><?php echo $repinfo['replie']; ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <?php }else{?>
+                                                        <div id="post_messageR<?php echo $repinfo['id'] ?>" class="post-message">
+                                                            <p id="Rmessage<?php echo $repinfo['id'] ?>"><?php echo $repinfo['replie']; ?></p>
+                                                        </div>
+                                                        <?php } ?>
+
+                                                        <?php }else{ ?>
+                                                        <div id="post_messageR<?php echo $repinfo['id'] ?>" class="post-message">
+                                                            <span style="color:red;border-right:2px solid red;border-left:2px solid red;padding-right:5px ;padding-left:5px">تم حدف التعليق، بسبب التبليغ عنه بشدة.</span>
+                                                        </div>
+                                                        <?php } ?>
+
+
+
+                                                        <ul class="post-tooltip post-menu-footer hidden-sm-up">
+                                                            
+                                                            
+                                                            <li class="dropdown">
+                                                                
+                                                                <a href="#" data-toggle="dropdown" rel="nofollow" class="menu-toggle"></a>
+                                                                
+                                                                
+                                                                <?php if( isset($_SESSION['id']) && $repinfo['idU']==$_SESSION['id']){ ?>
+                                                            
+                                                            <div class="dropdown-menu dropdown-menu-scale pull-right">
+
+                                                                <a class="dropdown-item story-share" onclick="upd_r('<?php echo $repinfo['id'] ?>','<?php echo $repinfo['spoiler'] ?>')">تعديل</a>
+
+                                                                <a class="dropdown-item story-share" onclick="opertion('deletec_r','<?php echo $repinfo['id'] ?>')">حذف</a>
+
+                                                            </div>
+
+                                                            <?php }else{ ?>
+                                                               <?php if($repinfo['idR']=='true'){ ?>
+                                                                    
+                                                                    <div class="dropdown-menu dropdown-menu-scale pull-right">
+                                                                        <a onclick="opertion(`rp|report`,`<?php echo $repinfo['id'] ?>`)" id="menutdivrmini<?php echo $repinfo['id']; ?>" class="dropdown-item story-share">إلغاء التبليغ</a></div>
+                                                               <?php }else{ ?>
+                                                                    <div class="dropdown-menu dropdown-menu-scale pull-right">
+                                                                        <a onclick="opertion(`rp|report`,`<?php echo $repinfo['id'] ?>`)" id="menutdivrmini<?php echo $repinfo['id']; ?>" class="dropdown-item story-share">تبليغ</a>
+                                                                    </div>
+                                                                 <?php } ?>
+                                                            <?php } ?>
+                                                        
+                                                            
+                                                            </li>
+                                                            
+                                                            
+                                                            <li><span id="likedivminirp<?php echo $repinfo['id']; ?>" onclick="opertion('rp|like','<?php echo $repinfo['id']; ?>')"  class="btn-like <?php if(detailpost($repinfo['id'],'rp')['myL']=='true'){ ?>active<?php }else{  } ?>"> <b id="likenumminirp<?php echo $repinfo['id']; ?>" >  <?php echo detailpost($repinfo['id'],'rp')['postL']; ?> </b><i class="like-heart"></i></span></li>
+                                                                
+                                                            
+                                                        </ul>
+                                                        <!---->
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <?php } ?>
+                                        </ul>
+                                        <?php } ?>
+
+                                    </li>
+                                    <?php } ?>
+
+
+                                </ul>
+                          
+
+                            <?php if ($comm->num_rows<6){}else{ ?>
+                            <div class="box-footer"><button id="more_cB" onclick="opertion('fd|more_c','<?php echo $feedinfo['id']; ?>')" type="button" class="el-button btn btn-block btn-default el-button--default"><span><strong id="more_cS">المزيد من التعليقات</strong></span></button></div>
+                            <?php } ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            </div>
+                                        <?php } ?>
+                                </div>

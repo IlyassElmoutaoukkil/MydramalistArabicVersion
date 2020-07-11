@@ -1,0 +1,7 @@
+.recs-similar-cover .cover {
+ display:inline-block;
+ width:120px;
+ height:168px;
+ background-color:#eee;
+ box-shadow:1px 1px 3px rgba(0,0,0,.18)
+}
